@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ajaya Kumar Panigrahi | QuickBooks ProAdvisor & Xero L1 Certified Bookkeeper</title>
-<meta name="description" content="Certified QuickBooks ProAdvisor & Xero L1 Certified Bookkeeper with 15+ years experience. Remote bookkeeping, accounting, FP&A and tax-ready books for U.S. CPA firms. Based in Mumbai, India.">
+
+<!-- ── SECURITY HEADERS (meta equivalents) ── -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta name="robots" content="index, follow">
+
+<title>Ajaya Kumar Panigrahi | QuickBooks ProAdvisor &amp; Xero L1 Certified Bookkeeper</title>
+<meta name="description" content="Certified QuickBooks ProAdvisor &amp; Xero L1 Certified Bookkeeper with 15+ years experience. Remote bookkeeping, accounting, FP&amp;A and tax-ready books for U.S. CPA firms. Based in Mumbai, India.">
+
+<!-- Google Fonts — loaded with crossorigin for CORS compliance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1739,39 +1750,46 @@
 
     <div class="contact-form reveal">
       <p class="form-title">Send a Message</p>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Jane Smith">
+      <!-- PRIVACY NOTICE: This form opens your email client. No data is stored on any server. -->
+      <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="senderName">Your Name *</label>
+            <input type="text" id="senderName" name="senderName" placeholder="Jane Smith" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="firmName">Firm / Company</label>
+            <input type="text" id="firmName" name="firmName" placeholder="Smith CPA LLC" autocomplete="organization">
+          </div>
         </div>
         <div class="form-group">
-          <label>Firm / Company</label>
-          <input type="text" placeholder="Smith CPA LLC">
+          <label for="senderEmail">Email Address *</label>
+          <input type="email" id="senderEmail" name="senderEmail" placeholder="jane@smithcpa.com" required autocomplete="email">
         </div>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="jane@ajayakpanigrahi.info">
-      </div>
-      <div class="form-group">
-        <label>Service Needed</label>
-        <select>
-          <option value="">Select a service...</option>
-          <option>Bookkeeping (QuickBooks / Xero)</option>
-          <option>Tax-Ready Books</option>
-          <option>FP&A & Management Reporting</option>
-          <option>Cost & Management Accounting</option>
-          <option>Cleanup / Catch-Up Bookkeeping</option>
-          <option>Admin & Client Support</option>
-          <option>Digital Marketing</option>
-          <option>Multiple Services</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell me about your firm's needs, timeline, and how I can help..."></textarea>
-      </div>
-      <button class="btn-primary" style="width:100%" onclick="handleSubmit(event)">Send Message →</button>
+        <div class="form-group">
+          <label for="serviceNeeded">Service Needed</label>
+          <select id="serviceNeeded" name="serviceNeeded">
+            <option value="">Select a service...</option>
+            <option value="bookkeeping">Bookkeeping (QuickBooks / Xero)</option>
+            <option value="taxready">Tax-Ready Books</option>
+            <option value="fpa">FP&amp;A &amp; Management Reporting</option>
+            <option value="costing">Cost &amp; Management Accounting</option>
+            <option value="cleanup">Cleanup / Catch-Up Bookkeeping</option>
+            <option value="admin">Admin &amp; Client Support</option>
+            <option value="marketing">Digital Marketing</option>
+            <option value="multiple">Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" placeholder="Tell me about your firm's needs, timeline, and how I can help..." required></textarea>
+        </div>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-bottom:1rem;line-height:1.5;">
+          &#128274; By clicking Send, your default email app will open with a pre-filled message. No data is collected, stored, or transmitted by this website. Fields marked * are required.
+        </p>
+        <button type="submit" class="btn-primary" style="width:100%">Send Message →</button>
+        <div id="formError" style="display:none;margin-top:0.75rem;color:#ff8a80;font-size:0.82rem;"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -1779,8 +1797,25 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand"><span>AKP</span> Bookkeeping &amp; Accounting</div>
-  <div class="footer-note">QuickBooks ProAdvisor · Xero L1 Certified · CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a href="mailto:ajayakpanigrahi@gmail.com">ajayakpanigrahi@gmail.com</a></div>
+  <div class="footer-note">QuickBooks ProAdvisor &middot; Xero L1 Certified &middot; CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a href="mailto:ajayakpanigrahi@gmail.com">ajayakpanigrahi@gmail.com</a></div>
 </footer>
+
+<!-- LEGAL NOTICE FOOTER -->
+<div style="background:#040d18;padding:1.2rem 5%;text-align:center;">
+  <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);line-height:1.8;max-width:900px;margin:0 auto;">
+    <strong style="color:rgba(255,255,255,0.35);">Trademark Notices:</strong>
+    QuickBooks and QuickBooks ProAdvisor are registered trademarks of Intuit Inc. Xero is a registered trademark of Xero Limited. SAP is a registered trademark of SAP SE. Oracle is a registered trademark of Oracle Corporation. Google Ads and Google Analytics are trademarks of Google LLC. Microsoft, Power BI, and Excel are trademarks of Microsoft Corporation. All trademarks are the property of their respective owners. Reference to these marks indicates certification or proficiency status only and does not imply any affiliation with, sponsorship by, or endorsement by the respective trademark owners.
+    <br><br>
+    <strong style="color:rgba(255,255,255,0.35);">Privacy Notice:</strong>
+    This website does not use cookies, tracking pixels, analytics scripts, or any third-party data collection tools. No personal data is collected, stored, or processed by this website. The contact form opens your local email application via a mailto link — no form data is transmitted to or stored on any server. The Google Fonts service is used to load typefaces; by visiting this page, your browser may make a request to Google's servers (fonts.googleapis.com / fonts.gstatic.com). If you are concerned about this, you may disable external fonts in your browser settings.
+    <br><br>
+    <strong style="color:rgba(255,255,255,0.35);">Disclaimer:</strong>
+    The information on this website is for general professional profile purposes only. Nothing on this website constitutes legal, tax, financial, or accounting advice. Ajaya Kumar Panigrahi is not a licensed CPA (Certified Public Accountant) in the United States, nor a licensed EA (Enrolled Agent). Services offered are bookkeeping, accounting, and related support services only — not licensed U.S. tax advice or representation.
+    <br><br>
+    &copy; <span id="year"></span> Ajaya Kumar Panigrahi. All rights reserved.
+  </p>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 <script>
   // Hamburger menu
@@ -1820,18 +1855,40 @@
     }
   });
 
-  // Form submit
+  // ── FORM: mailto handler (no server, no data collection) ──
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target;
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#2E7D32';
-    btn.style.color = 'white';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-      btn.style.color = '';
-    }, 3000);
+    const name    = document.getElementById('senderName').value.trim();
+    const email   = document.getElementById('senderEmail').value.trim();
+    const firm    = document.getElementById('firmName').value.trim();
+    const service = document.getElementById('serviceNeeded').value;
+    const msg     = document.getElementById('message').value.trim();
+    const errDiv  = document.getElementById('formError');
+
+    // Basic validation
+    if (!name || !email || !msg) {
+      errDiv.textContent = 'Please fill in all required fields (Name, Email, Message).';
+      errDiv.style.display = 'block';
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      errDiv.textContent = 'Please enter a valid email address.';
+      errDiv.style.display = 'block';
+      return;
+    }
+    errDiv.style.display = 'none';
+
+    // Build mailto — no data leaves to any server
+    const subject = encodeURIComponent('Enquiry from ' + name + (firm ? ' (' + firm + ')' : '') + (service ? ' — ' + service : ''));
+    const body    = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      (firm    ? 'Firm: ' + firm + '\n' : '') +
+      (service ? 'Service: ' + service + '\n' : '') +
+      '\nMessage:\n' + msg
+    );
+    window.location.href = 'mailto:ajayakpanigrahi@gmail.com?subject=' + subject + '&body=' + body;
   }
 
   // Smooth scroll for nav links
