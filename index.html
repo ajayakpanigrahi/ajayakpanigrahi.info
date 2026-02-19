@@ -1,680 +1,1849 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ajaya Kumar Panigrahi – Finance & Costing Professional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajaya Kumar Panigrahi | QuickBooks ProAdvisor & Xero L1 Certified Bookkeeper</title>
+<meta name="description" content="Certified QuickBooks ProAdvisor & Xero L1 Certified Bookkeeper with 15+ years experience. Remote bookkeeping, accounting, FP&A and tax-ready books for U.S. CPA firms. Based in Mumbai, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1F3C;
+    --navy-mid: #162d52;
+    --blue: #1A56DB;
+    --blue-light: #3b82f6;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --cream: #F8F5EE;
+    --cream-dark: #EDE8DC;
+    --white: #ffffff;
+    --gray: #6B7280;
+    --gray-light: #F3F4F6;
+    --text: #1a1a2e;
+    --text-soft: #4B5563;
+  }
 
-    :root {
-      --ink: #1a1a2e;
-      --accent: #c9973a;
-      --accent-light: #f5e9d5;
-      --muted: #6b7280;
-      --border: #e5e0d8;
-      --bg: #faf9f7;
-      --sidebar-bg: #1a1a2e;
-      --sidebar-text: #e8e2d9;
-      --sidebar-muted: #9a9ab0;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    background: rgba(13, 31, 60, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 0 5%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    padding: 0.45rem 1.2rem !important;
+    border-radius: 3px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-light) !important;
+    transform: translateY(-1px);
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+    display: block;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--navy);
+    z-index: 850;
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .mobile-menu.open { display: block; }
+
+  .mobile-menu a {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    letter-spacing: 0.03em;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+    gap: 4rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(26, 86, 219, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.7s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    animation: fadeInUp 0.7s ease 0.2s both;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.7s ease 0.3s both;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.7s ease 0.4s both;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+  }
+
+  .badge-gold {
+    background: rgba(201,168,76,0.15);
+    border-color: rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.5s both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* Hero right panel */
+  .hero-panel {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 2rem;
+    position: relative;
+    animation: fadeInRight 0.8s ease 0.3s both;
+  }
+
+  .hero-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue-light));
+    border-radius: 6px 6px 0 0;
+  }
+
+  .panel-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .availability-bar {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .avail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .avail-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .avail-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--blue-light));
+    border-radius: 2px;
+    animation: growBar 1.5s ease 1s both;
+    transform-origin: left;
+  }
+
+  @keyframes growBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .location-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 1rem;
+  }
+
+  .location-chip::before {
+    content: '📍';
+    font-size: 0.9rem;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 5%; }
+
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-title.light { color: var(--white); }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+
+  .section-intro.light { color: rgba(255,255,255,0.65); }
+
+  .divider {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+    margin: 1rem 0 2.5rem;
+  }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--navy-mid);
+    padding: 28px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .trust-icon {
+    width: 32px; height: 32px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--white); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cream-dark);
+    transition: background 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(26,86,219,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(13,31,60,0.1);
+  }
+
+  .service-card:hover::before {
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+  }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .service-tag {
+    background: rgba(13,31,60,0.06);
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── WHY ME ── */
+  .why-me {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-me::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(26,86,219,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .why-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    transition: all 0.25s;
+  }
+
+  .why-item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.25);
+  }
+
+  .why-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+    flex-shrink: 0;
+    min-width: 24px;
+  }
+
+  .why-text h4 {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .why-text p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* Stats right side */
+  .why-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .big-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.25s;
+  }
+
+  .big-stat:hover {
+    border-color: rgba(201,168,76,0.3);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .big-stat .big-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .big-stat .big-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
+  }
+
+  .big-stat.accent {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.3);
+    grid-column: span 2;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .big-stat.accent .big-num {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .big-stat.accent .big-label {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--cream); }
+
+  .exp-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .current-role {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 2rem;
+    position: sticky;
+    top: 84px;
+  }
+
+  .current-role .role-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .current-role h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .current-role .period {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.2rem;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .role-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .role-bullets li {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .role-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* History table */
+  .history-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .history-sub {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .history-table thead tr {
+    background: var(--navy);
+  }
+
+  .history-table thead th {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    font-size: 0.72rem;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .history-table tbody tr {
+    border-bottom: 1px solid var(--cream-dark);
+    transition: background 0.2s;
+  }
+
+  .history-table tbody tr:hover {
+    background: rgba(13,31,60,0.04);
+  }
+
+  .history-table tbody tr:nth-child(even) {
+    background: rgba(13,31,60,0.025);
+  }
+
+  .history-table tbody tr:nth-child(even):hover {
+    background: rgba(13,31,60,0.05);
+  }
+
+  .history-table td {
+    padding: 0.9rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .history-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .history-table td:last-child {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+
+  .role-pill {
+    display: inline-block;
+    background: rgba(13,31,60,0.06);
+    color: var(--navy);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  /* ── TOOLS ── */
+  .tools { background: var(--white); }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .tool-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    padding: 1.3rem;
+    text-align: center;
+    background: var(--cream);
+    transition: all 0.25s;
+  }
+
+  .tool-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,86,219,0.1);
+  }
+
+  .tool-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tool-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .tool-type {
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── CREDENTIALS ── */
+  .credentials { background: var(--cream); }
+
+  .creds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .cred-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .cred-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .cred-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(13,31,60,0.1);
+  }
+
+  .cred-card:hover::after { transform: scaleX(1); }
+
+  .cred-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .cred-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .cred-card p {
+    font-size: 0.83rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .cred-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    bottom: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+
+  .contact-item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.3);
+    transform: translateX(4px);
+  }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .contact-value {
+    font-size: 0.92rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Contact form */
+  .contact-form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 2rem;
+  }
+
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select option { background: var(--navy); color: var(--white); }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07101f;
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-brand {
+    font-family: 'DM Serif Display', serif;
+    color: var(--white);
+    font-size: 1rem;
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-note a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    .creds-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 5% 60px;
+      gap: 2.5rem;
     }
 
-    html { font-size: 15px; }
+    .hero-panel { display: none; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 2.5rem 1rem;
-      -webkit-font-smoothing: antialiased;
+    .services-grid { grid-template-columns: 1fr; }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
 
-    .resume {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      max-width: 1020px;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 4px 40px rgba(26,26,46,0.12), 0 1px 8px rgba(26,26,46,0.06);
-      animation: fadeIn 0.6s ease both;
-    }
+    .why-stats { order: -1; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar {
-      background: var(--sidebar-bg);
-      color: var(--sidebar-text);
-      padding: 2.8rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-    }
-
-    .avatar-block {
-      text-align: center;
-    }
-
-    .avatar-ring {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      background: rgba(201,151,58,0.12);
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
-    }
-
-    .sidebar h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.35;
-      margin-bottom: 0.3rem;
-    }
-
-    .sidebar .title {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .sidebar-section { }
-
-    .sidebar-section h3 {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border-bottom: 1px solid rgba(201,151,58,0.3);
-      padding-bottom: 0.45rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.65rem;
-      font-size: 0.8rem;
-      color: var(--sidebar-text);
-      line-height: 1.4;
-    }
-
-    .contact-item .icon {
-      color: var(--accent);
-      font-size: 0.9rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      background: rgba(201,151,58,0.13);
-      color: var(--accent);
-      border: 1px solid rgba(201,151,58,0.3);
-      border-radius: 3px;
-      padding: 0.22rem 0.5rem;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-    }
-
-    .skill-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.18rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .skill-label {
-      font-size: 0.75rem;
-      color: var(--sidebar-text);
-    }
-
-    .skill-bar-track {
-      height: 3px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 2px;
-      animation: fillBar 1s ease both;
-      animation-delay: 0.5s;
-    }
-
-    @keyframes fillBar {
-      from { width: 0 !important; }
-    }
-
-    .edu-item {
-      margin-bottom: 0.9rem;
-    }
-
-    .edu-item .degree {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.3;
-    }
-
-    .edu-item .inst {
-      font-size: 0.72rem;
-      color: var(--sidebar-muted);
-      margin-top: 0.15rem;
-    }
-
-    .personal-item {
-      font-size: 0.78rem;
-      color: var(--sidebar-text);
-      margin-bottom: 0.45rem;
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .personal-item span:first-child {
-      color: var(--sidebar-muted);
-      font-size: 0.7rem;
-      width: 60px;
-      flex-shrink: 0;
-    }
-
-    /* ── MAIN ── */
-    .main {
-      padding: 2.8rem 2.4rem;
-      display: flex;
-      flex-direction: column;
+    .exp-layout {
+      grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-    .main-header {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 1.2rem;
+    .current-role { position: static; }
+
+    .history-table thead th:nth-child(3),
+    .history-table td:nth-child(3) { display: none; }
+
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .creds-grid { grid-template-columns: 1fr; }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
 
-    .main-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.2;
+    .form-row { grid-template-columns: 1fr; }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
     }
 
-    .main-header .headline {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 0.3rem;
-    }
+    .trust-strip { gap: 1.5rem; }
+    .trust-item { font-size: 0.78rem; }
+  }
 
-    .section-title {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* Profile */
-    .profile-text {
-      font-size: 0.86rem;
-      line-height: 1.75;
-      color: #3d3d5c;
-    }
-
-    .profile-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .pill {
-      background: var(--accent-light);
-      color: #7a5c1e;
-      border-radius: 4px;
-      padding: 0.25rem 0.7rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    /* Functional Skills */
-    .func-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.35rem 1.2rem;
-    }
-
-    .func-list li {
-      font-size: 0.8rem;
-      color: #3d3d5c;
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.45;
-    }
-
-    .func-list li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.65rem;
-      top: 2px;
-    }
-
-    /* Experience */
-    .exp-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0 1rem;
-      margin-bottom: 1.3rem;
-      padding-bottom: 1.3rem;
-      border-bottom: 1px solid var(--border);
-      animation: slideUp 0.4s ease both;
-    }
-
-    .exp-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .exp-role {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .exp-company {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.15rem;
-    }
-
-    .exp-period {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-align: right;
-      white-space: nowrap;
-      padding-top: 2px;
-      letter-spacing: 0.02em;
-    }
-
-    .exp-location {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-align: right;
-      margin-top: 0.15rem;
-    }
-
-    /* Courses */
-    .course-item {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 0.55rem;
-      align-items: flex-start;
-      font-size: 0.8rem;
-      color: #3d3d5c;
-      line-height: 1.4;
-    }
-
-    .course-item::before {
-      content: '◆';
-      color: var(--accent);
-      font-size: 0.5rem;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
-    /* Tech Skills grid */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0.5rem 0.8rem;
-      font-size: 0.8rem;
-    }
-
-    .tech-grid .tech-label {
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 0.72rem;
-    }
-
-    .tech-grid .tech-val {
-      color: var(--ink);
-    }
-
-    @media (max-width: 720px) {
-      body { padding: 0; }
-      .resume { grid-template-columns: 1fr; box-shadow: none; }
-      .func-list { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; }
-      .exp-period, .exp-location { text-align: left; margin-top: 0.2rem; }
-    }
-
-    @media print {
-      body { padding: 0; background: none; }
-      .resume { box-shadow: none; max-width: 100%; }
-      .exp-item, .course-item { animation: none; }
-    }
-  </style>
+  @media (max-width: 480px) {
+    section { padding: 60px 5%; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 2rem; }
+    .history-table td, .history-table th { padding: 0.65rem 0.6rem; font-size: 0.8rem; }
+  }
+</style>
 </head>
 <body>
-<div class="resume">
 
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar">
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#"><span>AKP</span> Bookkeeping</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-me">Why Me</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <div class="avatar-block">
-      <div class="avatar-ring">AK</div>
-      <h1>Ajaya Kumar<br/>Panigrahi</h1>
-      <div class="title">Finance &amp; Costing Professional</div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Contact</h3>
-      <div class="contact-item">
-        <span class="icon">📞</span>
-        <span>09920873116</span>
-      </div>
-      <div class="contact-item">
-        <span class="icon">✉</span>
-        <span>ajayakpanigrahi@gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <span class="icon">📍</span>
-        <span>Panvel, Navi Mumbai</span>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Domain Expertise</h3>
-      <div class="tag-list">
-        <span class="tag">FP&amp;A</span>
-        <span class="tag">P2P</span>
-        <span class="tag">O2C</span>
-        <span class="tag">R2R</span>
-        <span class="tag">Mgmt Accounting</span>
-        <span class="tag">Treasury</span>
-        <span class="tag">AML Compliance</span>
-        <span class="tag">IT Governance</span>
-        <span class="tag">Internal Audit</span>
-        <span class="tag">Tax Compliance</span>
-        <span class="tag">MIS Automation</span>
-        <span class="tag">Digital Transform</span>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>ERP &amp; Tools</h3>
-      <div class="skill-row">
-        <span class="skill-label">SAP / Oracle</span>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Power BI / Power Query</span>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Excel / Google Sheets</span>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Python / SQL / PSQL</span>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%"></div></div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Tally / Xero</span>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Education</h3>
-      <div class="edu-item">
-        <div class="degree">CMA</div>
-        <div class="inst">NIRC-ICAI, New Delhi · 2010</div>
-      </div>
-      <div class="edu-item">
-        <div class="degree">B.Com.</div>
-        <div class="inst">Binayaka Acharya College, Berhampur University, Orissa · 2001</div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Personal</h3>
-      <div class="personal-item">
-        <span>DOB</span>
-        <span>7th June 1981</span>
-      </div>
-      <div class="personal-item">
-        <span>Languages</span>
-        <span>English, Hindi, Oriya</span>
-      </div>
-    </div>
-
-  </aside>
-
-  <!-- ── MAIN CONTENT ── -->
-  <main class="main">
-
-    <div class="main-header">
-      <h2>Ajaya Kumar Panigrahi</h2>
-      <div class="headline">FP&amp;A · Management Accounting · MIS Automation · Decision Support</div>
-    </div>
-
-    <!-- Profile -->
-    <section>
-      <div class="section-title">Profile Snapshot</div>
-      <div class="profile-pills">
-        <span class="pill">P2P – Procure to Pay</span>
-        <span class="pill">O2C – Order to Cash</span>
-        <span class="pill">R2R – Record to Report</span>
-        <span class="pill">FP&A – Planning &amp; Analysis</span>
-        <span class="pill">Management Accounting</span>
-        <span class="pill">Finance Systems &amp; Data</span>
-        <span class="pill">AML / Regulatory Compliance</span>
-        <span class="pill">IT Governance &amp; Controls</span>
-        <span class="pill">Treasury Management</span>
-        <span class="pill">Tax &amp; Statutory Compliance</span>
-        <span class="pill">Internal Control &amp; Audit</span>
-        <span class="pill">Digital Transformation</span>
-      </div>
-      <p class="profile-text">
-        B.Com &amp; CMA professional with around <strong>14 years of experience</strong> across all aspects of Finance &amp; Accounts. Proficient in FP&amp;A, KPI analysis, and Management Accounting techniques including Activity Based Costing, Target Costing, Standard Costing, Marginal Costing, and Simulation &amp; Optimization models. Capable of executing monthly/quarterly/yearly closure of books as per <strong>Ind AS / IFRS / US GAAP</strong> along with direct and indirect tax compliance.
-      </p>
-    </section>
-
-    <!-- Functional Skills -->
-    <section>
-      <div class="section-title">Functional Skills</div>
-      <ul class="func-list">
-        <li>Daily costing, pricing of new products, cost reduction, scenario analysis, simulation &amp; optimization</li>
-        <li>Review &amp; analysis of daily &amp; monthly operating reports for Decision Support System</li>
-        <li>Machine-wise, product-wise and quality-wise costing analysis</li>
-        <li>Inventory valuation and finalization of accounts (Ind AS / IFRS / US GAAP)</li>
-        <li>Annual Business Plan preparation and variance analysis</li>
-        <li>Monthly target/projection and variance analysis with actuals</li>
-        <li>Review of Fixed Asset Register, depreciation working, CWIP capitalization</li>
-        <li>Co-ordination with Statutory, Internal &amp; Tax Auditors for compliance</li>
-        <li>Working Capital, Fund Flow and Cash Flow reports; inter-company reconciliations</li>
-        <li>Opex/Capex bills processing, month-end JV posting, vendor reconciliation</li>
-        <li>CMA and other reports for banks, credit rating agencies &amp; statutory authorities</li>
-      </ul>
-    </section>
-
-    <!-- Tech Skills -->
-    <section>
-      <div class="section-title">Technical Skills</div>
-      <div class="tech-grid">
-        <span class="tech-label">ERP Systems</span>
-        <span class="tech-val">SAP, Oracle, Xero, Tally</span>
-        <span class="tech-label">Applications</span>
-        <span class="tech-val">MS Office 365, Excel, Google Sheets, Power BI, Power Query, MS Access</span>
-        <span class="tech-label">Programming</span>
-        <span class="tech-val">Python, MS SQL, PostgreSQL</span>
-        <span class="tech-label">Reporting</span>
-        <span class="tech-val">MS PowerPoint, MIS Dashboards, Data Automation</span>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section>
-      <div class="section-title">Organisational Experience</div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Asst. Manager – Costing</div>
-          <div class="exp-company">VVF India Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Sept 2024 – Oct 2025</div>
-          <div class="exp-location">Mumbai</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Deputy Manager – Costing</div>
-          <div class="exp-company">All Time Plastics Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Dec 2022 – May 2024</div>
-          <div class="exp-location">Mumbai</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Deputy Manager – Costing</div>
-          <div class="exp-company">The Sirpur Paper Mills Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Jan 2021 – Mar 2022</div>
-          <div class="exp-location">Telangana</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Deputy Manager – Accounts</div>
-          <div class="exp-company">Gopalpur Ports Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Jun 2019 – Jan 2021</div>
-          <div class="exp-location">Gopalpur, Odisha</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Assistant Manager – Finance &amp; Accounts</div>
-          <div class="exp-company">Zuari Agro Chemicals Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Nov 2017 – Oct 2018</div>
-          <div class="exp-location">Mahad</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Sr. Officer – Accounts</div>
-          <div class="exp-company">Uttam Galva Metallics Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Aug 2016 – Nov 2017</div>
-          <div class="exp-location">Wardha</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Sr. Executive – Commercial</div>
-          <div class="exp-company">Wipro Enterprises Ltd (Water Business)</div>
-        </div>
-        <div>
-          <div class="exp-period">Mar 2013 – Mar 2016</div>
-          <div class="exp-location">Navi Mumbai</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div>
-          <div class="exp-role">Associate Officer – Accounts / Trainee</div>
-          <div class="exp-company">Technip KT India Ltd</div>
-        </div>
-        <div>
-          <div class="exp-period">Jul 2009 – Jan 2012</div>
-          <div class="exp-location">Noida</div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Additional Courses -->
-    <section>
-      <div class="section-title">Professional Development</div>
-      <div class="course-item">
-        <span><strong>Data Analytics for Finance Professionals</strong> — The Institute of Cost Accountants of India, 2021–22</span>
-      </div>
-      <div class="course-item">
-        <span><strong>Decision Support System for Managers</strong> — IIT Kanpur, 2022</span>
-      </div>
-      <div class="course-item">
-        <span><strong>Diploma in Computer Application</strong> — Unisoft Computer Training Institute, Berhampur, 2001</span>
-      </div>
-    </section>
-
-  </main>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#why-me" onclick="closeMobileMenu()">Why Me</a>
+  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#credentials" onclick="closeMobileMenu()">Credentials</a>
+  <a href="#contact" onclick="closeMobileMenu()">Hire Me</a>
 </div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">Available for U.S. CPA Firms — Remote</div>
+    <h1>Ajaya Kumar<br><em>Panigrahi</em></h1>
+    <p class="hero-subtitle">QuickBooks ProAdvisor &nbsp;·&nbsp; Xero L1 Certified &nbsp;·&nbsp; CMA (India)</p>
+    <p class="hero-desc">
+      15+ years of finance and accounting expertise, now exclusively focused on delivering clean, accurate, and CPA-ready books for U.S. firms — remotely from Mumbai, India's financial capital.
+    </p>
+    <div class="hero-badges">
+      <span class="badge badge-gold">QuickBooks ProAdvisor</span>
+      <span class="badge badge-gold">Xero L1 Certified</span>
+      <span class="badge">CMA (India)</span>
+      <span class="badge">B.Com</span>
+      <span class="badge">SAP · Oracle</span>
+      <span class="badge">US GAAP · IFRS</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+
+  <div class="hero-panel">
+    <p class="panel-title">// Availability Dashboard</p>
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Companies Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">80</div>
+        <div class="stat-label">Hrs/Wk Tax Season</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">20</div>
+        <div class="stat-label">Hrs/Wk Off-Season</div>
+      </div>
+    </div>
+
+    <div class="availability-bar">
+      <div class="avail-row">
+        <span class="avail-label">Tax Season Capacity</span>
+        <span class="avail-val">80 hrs/wk</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="availability-bar" style="margin-bottom:0">
+      <div class="avail-row">
+        <span class="avail-label">Off-Season Capacity</span>
+        <span class="avail-val">20 hrs/wk</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:25%"></div>
+      </div>
+    </div>
+    <div class="location-chip">Mumbai, India &mdash; Financial Capital &nbsp;|&nbsp; 24/7 Connectivity</div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-icon">✓</div> QuickBooks ProAdvisor Certified</div>
+  <div class="trust-item"><div class="trust-icon">✓</div> Xero L1 Certified</div>
+  <div class="trust-item"><div class="trust-icon">✓</div> CMA (India) — ICAI</div>
+  <div class="trust-item"><div class="trust-icon">✓</div> US GAAP & IFRS Familiar</div>
+  <div class="trust-item"><div class="trust-icon">✓</div> No CPA/EA Affiliation — Conflict Free</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div>
+      <span class="section-tag">// What I Offer</span>
+      <h2 class="section-title">Services for<br>U.S. CPA Firms</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="section-intro">From day-to-day bookkeeping to FP&amp;A and digital marketing — a comprehensive remote support partner, purpose-built for U.S. accounting firms.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">📒</div>
+      <h3>Bookkeeping & Accounting</h3>
+      <p>Full-cycle QuickBooks Online and Xero bookkeeping — clean, CPA-ready books delivered every month without fail.</p>
+      <div class="service-tags">
+        <span class="service-tag">QBO</span>
+        <span class="service-tag">Xero</span>
+        <span class="service-tag">Reconciliation</span>
+        <span class="service-tag">AR/AP</span>
+        <span class="service-tag">Cleanup</span>
+        <span class="service-tag">Month-End Close</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <h3>Tax-Ready Books</h3>
+      <p>Organized, reconciled, and structured books and documentation ready before your deadlines — reducing CPA preparation time at year-end.</p>
+      <div class="service-tags">
+        <span class="service-tag">Year-End Support</span>
+        <span class="service-tag">Documentation</span>
+        <span class="service-tag">CPA Handover</span>
+        <span class="service-tag">US GAAP</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">📈</div>
+      <h3>FP&A & Management Reporting</h3>
+      <p>Budgeting, forecasting, variance analysis, and KPI dashboards — decision-grade management reports your clients can act on.</p>
+      <div class="service-tags">
+        <span class="service-tag">Budgeting</span>
+        <span class="service-tag">Forecasting</span>
+        <span class="service-tag">P&L</span>
+        <span class="service-tag">Cash Flow</span>
+        <span class="service-tag">KPI</span>
+        <span class="service-tag">Power BI</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">⚙️</div>
+      <h3>Cost & Management Accounting</h3>
+      <p>CMA-level expertise in Activity Based Costing, Standard Costing, and decision-support analytics — real industry depth, not just textbook knowledge.</p>
+      <div class="service-tags">
+        <span class="service-tag">ABC Costing</span>
+        <span class="service-tag">Standard Costing</span>
+        <span class="service-tag">Marginal Costing</span>
+        <span class="service-tag">MIS Reports</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🗂️</div>
+      <h3>Admin, HR & Client Support</h3>
+      <p>Administrative coordination, client communication, HR record management, and data management — taking the operational load off your team.</p>
+      <div class="service-tags">
+        <span class="service-tag">Admin Support</span>
+        <span class="service-tag">Client Comms</span>
+        <span class="service-tag">HR Records</span>
+        <span class="service-tag">Data Management</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">📣</div>
+      <h3>Digital Marketing</h3>
+      <p>Content creation, YouTube video production, Google Ads campaigns, and Analytics reporting — growing your firm's online presence while you focus on clients.</p>
+      <div class="service-tags">
+        <span class="service-tag">Google Ads</span>
+        <span class="service-tag">Analytics</span>
+        <span class="service-tag">YouTube</span>
+        <span class="service-tag">Content Creation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me" id="why-me">
+  <div class="why-grid">
+    <div>
+      <span class="section-tag">// Why Choose Me</span>
+      <h2 class="section-title light">The Right Remote<br>Partner for Your Firm</h2>
+      <div class="divider"></div>
+      <p class="section-intro light">Based in Mumbai — India's financial capital — operating as an independent individual contributor with co-working space flexibility and zero-downtime infrastructure.</p>
+
+      <div class="why-list">
+        <div class="why-item reveal">
+          <span class="why-num">01</span>
+          <div class="why-text">
+            <h4>Tax Season Surge Capacity</h4>
+            <p>Up to 80 hrs/week when your firm needs it most — no scrambling for bandwidth during peak season.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">02</span>
+          <div class="why-text">
+            <h4>Mumbai-Based Individual Contributor</h4>
+            <p>Operating from India's financial capital with readiness to work from dedicated co-working spaces — professional environment, 24/7 connectivity.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">03</span>
+          <div class="why-text">
+            <h4>Real Industry Depth</h4>
+            <p>15+ years across manufacturing, chemicals, engineering, ports & plastics — experience that goes well beyond standard bookkeeping.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">04</span>
+          <div class="why-text">
+            <h4>Multi-Platform Expert</h4>
+            <p>QuickBooks Online, Xero, SAP, Oracle, Power BI, advanced Excel — the full stack your clients use, already mastered.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">05</span>
+          <div class="why-text">
+            <h4>Zero Conflict of Interest</h4>
+            <p>Not affiliated with any CPA, EA or CA firm in the USA or internationally — full professional dedication to you.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">06</span>
+          <div class="why-text">
+            <h4>AI-Enabled Workflows</h4>
+            <p>AI agents and automation tools applied across bookkeeping to improve accuracy, reduce manual effort, and accelerate deliverables.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-stats reveal">
+      <div class="big-stat">
+        <div class="big-num">15+</div>
+        <div class="big-label">Years of Finance &amp; Accounting Experience</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-num">80</div>
+        <div class="big-label">Hours / Week During U.S. Tax Season</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-num">8</div>
+        <div class="big-label">Industries Across Career</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-num">3</div>
+        <div class="big-label">Professional Certifications</div>
+      </div>
+      <div class="big-stat accent">
+        <div class="big-num">₹→$</div>
+        <div class="big-label">Based in Mumbai, India's Financial Capital — serving U.S. CPA firms with full remote capability and co-working space access.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div style="margin-bottom: 3rem" class="reveal">
+    <span class="section-tag">// Career History</span>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="divider"></div>
+    <p class="section-intro">15+ years of progressive finance and accounting roles — from multinational engineering firms to manufacturing, chemicals, ports and plastics.</p>
+  </div>
+
+  <div class="exp-layout">
+    <!-- Current role -->
+    <div class="current-role reveal">
+      <p class="role-tag">// Current Role</p>
+      <h3>Senior Bookkeeper & Accounting Consultant</h3>
+      <p class="period">Oct 2025 – Present &nbsp;|&nbsp; Remote</p>
+      <ul class="role-bullets">
+        <li>Full-cycle QBO & Xero bookkeeping for U.S. SMEs and CPA firms</li>
+        <li>CPA-ready books, clean reconciliations and year-end handover</li>
+        <li>Cleanup & catch-up bookkeeping — resolving misclassified transactions</li>
+        <li>Monthly management reports: P&L, Balance Sheet, Cash Flow</li>
+        <li>AR/AP support — invoicing, vendor bills, expense tracking</li>
+        <li>Tax-ready books and structured documentation for CPA teams</li>
+        <li>FP&A — budgeting, forecasting and variance analysis</li>
+        <li>Cost accounting & management accounting advisory</li>
+        <li>Admin, client comms, HR records and data management</li>
+        <li>Digital marketing: Google Ads, Analytics, YouTube, content</li>
+        <li>AI agents & automation for speed and accuracy</li>
+        <li>Independent contributor — Mumbai-based, co-working ready</li>
+      </ul>
+    </div>
+
+    <!-- History table -->
+    <div class="reveal">
+      <h3 class="history-title">Prior Employment History</h3>
+      <p class="history-sub">Full details available on request. 15+ years across diverse industries.</p>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Organisation</th>
+            <th>Role</th>
+            <th>Period</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VVF India Ltd., Mumbai</td>
+            <td><span class="role-pill">Asst. Manager – Costing</span></td>
+            <td>Sept 2024 – Oct 2025</td>
+          </tr>
+          <tr>
+            <td>All Time Plastics Ltd., Mumbai</td>
+            <td><span class="role-pill">Dy. Manager – Costing</span></td>
+            <td>Dec 2022 – May 2024</td>
+          </tr>
+          <tr>
+            <td>Sirpur Paper Mills Ltd., Telangana</td>
+            <td><span class="role-pill">Dy. Manager – Costing</span></td>
+            <td>Jan 2021 – Mar 2022</td>
+          </tr>
+          <tr>
+            <td>Gopalpur Ports Ltd., Odisha</td>
+            <td><span class="role-pill">Deputy Manager – Accounts</span></td>
+            <td>Jun 2019 – Jan 2021</td>
+          </tr>
+          <tr>
+            <td>Zuari Agro Chemicals Ltd., Maharashtra</td>
+            <td><span class="role-pill">Asst. Manager – Finance</span></td>
+            <td>Nov 2017 – Oct 2018</td>
+          </tr>
+          <tr>
+            <td>Uttam Galva Metallics Ltd., Maharashtra</td>
+            <td><span class="role-pill">Sr. Officer – Accounts</span></td>
+            <td>Aug 2016 – Nov 2017</td>
+          </tr>
+          <tr>
+            <td>Wipro Enterprises (Water Business), Navi Mumbai</td>
+            <td><span class="role-pill">Sr. Executive – Commercial</span></td>
+            <td>Mar 2013 – Mar 2016</td>
+          </tr>
+          <tr>
+            <td>Technip KT India Ltd., Noida</td>
+            <td><span class="role-pill">Associate Officer – Accounts</span></td>
+            <td>Jul 2009 – Jan 2012</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="reveal">
+    <span class="section-tag">// Technology Stack</span>
+    <h2 class="section-title">Tools & Platforms</h2>
+    <div class="divider"></div>
+    <p class="section-intro">Every major platform your clients use — already mastered. No learning curve, just results.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card reveal"><span class="tool-emoji">📗</span><div class="tool-name">QuickBooks Online</div><div class="tool-type">ProAdvisor Certified</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">📘</span><div class="tool-name">Xero</div><div class="tool-type">L1 Certified</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">🔷</span><div class="tool-name">SAP</div><div class="tool-type">ERP System</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">🔶</span><div class="tool-name">Oracle</div><div class="tool-type">ERP System</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">📊</span><div class="tool-name">Power BI</div><div class="tool-name" style="font-size:0.75rem;color:var(--text-soft);font-weight:400">+ Power Query</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">📋</span><div class="tool-name">Excel & Google Sheets</div><div class="tool-type">Advanced Level</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">🐍</span><div class="tool-name">Python</div><div class="tool-type">Scripting & Automation</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">🤖</span><div class="tool-name">AI Agents</div><div class="tool-type">Workflow Automation</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">📣</span><div class="tool-name">Google Ads</div><div class="tool-type">+ Analytics</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">▶️</span><div class="tool-name">YouTube Studio</div><div class="tool-type">Content & Video</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">🗃️</span><div class="tool-name">MS Access / SQL</div><div class="tool-type">Database & Reporting</div></div>
+    <div class="tool-card reveal"><span class="tool-emoji">📦</span><div class="tool-name">Tally</div><div class="tool-type">Accounting ERP</div></div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+  <div class="reveal">
+    <span class="section-tag">// Qualifications</span>
+    <h2 class="section-title">Education &amp; Credentials</h2>
+    <div class="divider"></div>
+    <p class="section-intro">Formally qualified, platform-certified, and continuously learning — building on a foundation of 15+ years of applied finance expertise.</p>
+  </div>
+
+  <div class="creds-grid">
+    <div class="cred-card reveal">
+      <span class="cred-icon">📗</span>
+      <h3>Certified QuickBooks ProAdvisor</h3>
+      <p>Intuit-certified ProAdvisor with hands-on experience setting up, migrating, cleaning up, and maintaining QuickBooks Online for U.S. small businesses and CPA firm clients.</p>
+      <span class="cred-badge">Intuit Certified</span>
+    </div>
+
+    <div class="cred-card reveal">
+      <span class="cred-icon">📘</span>
+      <h3>Xero L1 Certified Bookkeeper</h3>
+      <p>Xero L1 Certified with demonstrated expertise in Xero bookkeeping, reconciliations, reporting, and client management. Covers the full Xero workflow for SME and CPA firm use cases.</p>
+      <span class="cred-badge">Xero L1 Certified</span>
+    </div>
+
+    <div class="cred-card reveal">
+      <span class="cred-icon">🏅</span>
+      <h3>CMA — Cost Management Accountant</h3>
+      <p>Certified Management Accountant from NIRC-ICAI, New Delhi (2010). Provides deep expertise in cost accounting, management accounting, FP&A, and financial decision support.</p>
+      <span class="cred-badge">ICAI — 2010</span>
+    </div>
+
+    <div class="cred-card reveal">
+      <span class="cred-icon">🎓</span>
+      <h3>B.Com — Bachelor of Commerce</h3>
+      <p>Bachelor of Commerce from Binayaka Acharya College, Berhampur University, Orissa (2001). Foundational academic grounding in accounting, finance, and commerce.</p>
+      <span class="cred-badge">Berhampur University</span>
+    </div>
+
+    <div class="cred-card reveal">
+      <span class="cred-icon">📉</span>
+      <h3>Data Analytics for Finance</h3>
+      <p>Completed Data Analytics for Finance Professionals program from the Institute of Cost Accountants of India (2021–22) — applying analytics to financial reporting and decision-making.</p>
+      <span class="cred-badge">ICAI — 2022</span>
+    </div>
+
+    <div class="cred-card reveal">
+      <span class="cred-icon">🧠</span>
+      <h3>Decision Support Systems</h3>
+      <p>Decision Support System for Managers from IIT Kanpur (2022) — advanced training in MIS automation, simulation models, and data-driven decision frameworks.</p>
+      <span class="cred-badge">IIT Kanpur — 2022</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-layout">
+    <div>
+      <span class="section-tag">// Let's Work Together</span>
+      <h2 class="section-title light">Ready to Support<br>Your CPA Firm</h2>
+      <div class="divider"></div>
+      <p class="section-intro light">Whether you need ongoing monthly bookkeeping, tax-season surge support, or a full-service accounting and admin partner — let's talk.</p>
+
+      <div class="contact-info">
+        <a class="contact-item" href="mailto:ajayakpanigrahi@gmail.com">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">ajayakpanigrahi@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact-item" href="tel:+919920873116">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-value">+91 99208 73116</div>
+          </div>
+        </a>
+        <div class="contact-item" style="cursor:default">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Mumbai, India — Financial Capital</div>
+          </div>
+        </div>
+        <div class="contact-item" style="cursor:default">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Availability</div>
+            <div class="contact-value">80 hrs/wk tax season · 20 hrs/wk off-season</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <p class="form-title">Send a Message</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Firm / Company</label>
+          <input type="text" placeholder="Smith CPA LLC">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@smithcpa.com">
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Bookkeeping (QuickBooks / Xero)</option>
+          <option>Tax-Ready Books</option>
+          <option>FP&A & Management Reporting</option>
+          <option>Cost & Management Accounting</option>
+          <option>Cleanup / Catch-Up Bookkeeping</option>
+          <option>Admin & Client Support</option>
+          <option>Digital Marketing</option>
+          <option>Multiple Services</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your firm's needs, timeline, and how I can help..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%" onclick="handleSubmit(event)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><span>AKP</span> Bookkeeping &amp; Accounting</div>
+  <div class="footer-note">QuickBooks ProAdvisor · Xero L1 Certified · CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a href="mailto:ajayakpanigrahi@gmail.com">ajayakpanigrahi@gmail.com</a></div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#2E7D32';
+    btn.style.color = 'white';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
 </body>
 </html>
