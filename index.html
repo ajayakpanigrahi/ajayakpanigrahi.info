@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ── SECURITY HEADERS (meta equivalents) ── -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -20,37 +19,30 @@
 
 <style>
   :root {
-    /* Claude-inspired warm neutrals */
-    --bg:           #F5F0E8;
-    --bg-warm:      #EDE8DC;
+    /* Updated to Option 1: Federal Blue & Gold */
+    --bg:           #F5F1E8;
+    --bg-warm:      #EAE4D6;
     --bg-card:      #FAF8F3;
     --surface:      #FFFFFF;
 
-    /* Deep forest greens (primary) */
-    --green-deep:   #1A3A2A;
-    --green-mid:    #2D5A3D;
-    --green-bright: #3A7D52;
-    --green-light:  #5BAF78;
-    --green-muted:  rgba(42, 90, 61, 0.08);
+    --navy:         #1B2E50;
+    --navy-mid:     #243A66;
+    --navy-deep:    #10203A;
+    --gold:         #C8A450;
+    --gold-light:   #E2C47A;
+    --gold-pale:    rgba(200,164,80,0.12);
+    
+    --blue-mid:     #3A6EAA;
+    --blue-light:   #5A8EC4;
+    --cream:        #F5F1E8;
 
-    /* Claude coral/orange accent */
-    --coral:        #D4622A;
-    --coral-light:  #E8855A;
-    --coral-pale:   rgba(212, 98, 42, 0.12);
+    --text:         #0E1E36;
+    --text-soft:    #3D5275;
+    --text-muted:   #7A90AA;
 
-    /* Sage / mid tones */
-    --sage:         #7EA88A;
-    --sage-light:   rgba(126, 168, 138, 0.15);
-
-    /* Text */
-    --text:         #1C2B22;
-    --text-soft:    #4A6155;
-    --text-muted:   #7A9485;
-
-    /* Dark panel */
-    --dark:         #111F18;
-    --dark-mid:     #1A2E22;
-    --dark-card:    rgba(255,255,255,0.05);
+    --dark:         #10203A;
+    --dark-mid:     #1B2E50;
+    --dark-card:    rgba(255,255,255,0.04);
     --dark-border:  rgba(255,255,255,0.09);
   }
 
@@ -64,7 +56,6 @@
     overflow-x: hidden;
   }
 
-  /* Subtle paper texture */
   body::before {
     content: '';
     position: fixed;
@@ -80,9 +71,9 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 900;
-    background: rgba(17, 31, 24, 0.97);
+    background: rgba(16, 32, 58, 0.98);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(91, 175, 120, 0.18);
+    border-bottom: 1px solid rgba(200, 164, 80, 0.22);
     padding: 0 5%;
     height: 64px;
     display: flex;
@@ -94,12 +85,10 @@
   .nav-logo {
     font-family: 'Lora', serif;
     font-size: 1.1rem;
-    color: var(--bg);
+    color: var(--cream);
     text-decoration: none;
     letter-spacing: 0.01em;
   }
-
-  .nav-logo span { color: var(--green-light); }
 
   .nav-links {
     display: flex;
@@ -109,7 +98,7 @@
   }
 
   .nav-links a {
-    color: rgba(245,240,232,0.65);
+    color: rgba(245,241,232,0.65);
     text-decoration: none;
     font-size: 0.83rem;
     font-weight: 500;
@@ -118,11 +107,11 @@
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--green-light); }
+  .nav-links a:hover { color: var(--gold); }
 
   .nav-cta {
-    background: var(--coral) !important;
-    color: #fff !important;
+    background: var(--gold) !important;
+    color: var(--navy) !important;
     padding: 0.45rem 1.2rem !important;
     border-radius: 3px !important;
     font-weight: 700 !important;
@@ -133,12 +122,11 @@
   }
 
   .nav-cta:hover {
-    background: var(--coral-light) !important;
+    background: var(--gold-light) !important;
     transform: translateY(-1px);
-    color: #fff !important;
+    color: var(--navy) !important;
   }
 
-  /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -151,7 +139,7 @@
 
   .hamburger span {
     width: 24px; height: 2px;
-    background: var(--bg);
+    background: var(--cream);
     border-radius: 2px;
     transition: all 0.3s;
     display: block;
@@ -165,17 +153,17 @@
     display: none;
     position: fixed;
     top: 64px; left: 0; right: 0;
-    background: var(--dark);
+    background: var(--navy-deep);
     z-index: 850;
     padding: 1.5rem 5%;
-    border-bottom: 1px solid rgba(91,175,120,0.15);
+    border-bottom: 1px solid rgba(200, 164, 80, 0.18);
   }
 
   .mobile-menu.open { display: block; }
 
   .mobile-menu a {
     display: block;
-    color: rgba(245,240,232,0.75);
+    color: rgba(245,241,232,0.78);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -184,13 +172,12 @@
     letter-spacing: 0.03em;
   }
 
-  .mobile-menu a:last-child { border-bottom: none; }
-  .mobile-menu a:hover { color: var(--green-light); }
+  .mobile-menu a:hover { color: var(--gold); }
 
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    background: var(--dark);
+    background: var(--navy);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -200,25 +187,14 @@
     gap: 4rem;
   }
 
-  /* Animated mesh background */
   .hero::before {
     content: '';
     position: absolute;
     top: -180px; right: -180px;
     width: 680px; height: 680px;
-    background: radial-gradient(circle at 60% 40%, rgba(42,90,61,0.28) 0%, rgba(58,125,82,0.12) 40%, transparent 70%);
+    background: radial-gradient(circle at 60% 40%, rgba(58,110,170,0.22) 0%, rgba(200,164,80,0.06) 40%, transparent 70%);
     pointer-events: none;
     animation: driftA 12s ease-in-out infinite alternate;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -120px; left: -80px;
-    width: 520px; height: 520px;
-    background: radial-gradient(circle, rgba(212,98,42,0.1) 0%, transparent 65%);
-    pointer-events: none;
-    animation: driftB 10s ease-in-out infinite alternate;
   }
 
   @keyframes driftA {
@@ -226,18 +202,13 @@
     to   { transform: translate(30px, -20px) scale(1.06); }
   }
 
-  @keyframes driftB {
-    from { transform: translate(0, 0); }
-    to   { transform: translate(-20px, 30px); }
-  }
-
   .hero-tag {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(91,175,120,0.1);
-    border: 1px solid rgba(91,175,120,0.28);
-    color: var(--green-light);
+    background: var(--gold-pale);
+    border: 1px solid rgba(200,164,80,0.32);
+    color: var(--gold);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
@@ -251,7 +222,7 @@
   .hero-tag::before {
     content: '';
     width: 6px; height: 6px;
-    background: var(--green-light);
+    background: var(--gold);
     border-radius: 50%;
     animation: pulse 2.2s infinite;
   }
@@ -264,7 +235,7 @@
   .hero h1 {
     font-family: 'Lora', serif;
     font-size: clamp(2.4rem, 4.5vw, 3.9rem);
-    color: var(--bg);
+    color: var(--cream);
     line-height: 1.1;
     margin-bottom: 0.5rem;
     animation: fadeInUp 0.7s ease 0.1s both;
@@ -272,12 +243,12 @@
 
   .hero h1 em {
     font-style: italic;
-    color: var(--green-light);
+    color: var(--gold);
   }
 
   .hero-subtitle {
     font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-    color: rgba(245,240,232,0.45);
+    color: rgba(245,241,232,0.45);
     font-weight: 400;
     margin-bottom: 1.5rem;
     letter-spacing: 0.04em;
@@ -286,25 +257,17 @@
 
   .hero-desc {
     font-size: 1rem;
-    color: rgba(245,240,232,0.68);
+    color: rgba(245,241,232,0.68);
     line-height: 1.8;
     max-width: 520px;
     margin-bottom: 2.5rem;
     animation: fadeInUp 0.7s ease 0.3s both;
   }
 
-  .hero-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    margin-bottom: 2.5rem;
-    animation: fadeInUp 0.7s ease 0.4s both;
-  }
-
   .badge {
-    background: rgba(245,240,232,0.06);
-    border: 1px solid rgba(245,240,232,0.13);
-    color: rgba(245,240,232,0.8);
+    background: rgba(245,241,232,0.06);
+    border: 1px solid rgba(245,241,232,0.13);
+    color: rgba(245,241,232,0.8);
     font-size: 0.76rem;
     font-weight: 500;
     padding: 0.32rem 0.8rem;
@@ -312,10 +275,10 @@
     letter-spacing: 0.04em;
   }
 
-  .badge-green {
-    background: rgba(91,175,120,0.12);
-    border-color: rgba(91,175,120,0.35);
-    color: var(--green-light);
+  .badge-gold {
+    background: var(--gold-pale);
+    border-color: rgba(200,164,80,0.38);
+    color: var(--gold);
     font-weight: 600;
   }
 
@@ -327,8 +290,8 @@
   }
 
   .btn-primary {
-    background: var(--coral);
-    color: #fff;
+    background: var(--gold);
+    color: var(--navy);
     padding: 0.85rem 2rem;
     border-radius: 3px;
     font-weight: 700;
@@ -343,14 +306,14 @@
   }
 
   .btn-primary:hover {
-    background: var(--coral-light);
+    background: var(--gold-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(212,98,42,0.28);
+    box-shadow: 0 10px 28px rgba(200,164,80,0.3);
   }
 
   .btn-outline {
     background: transparent;
-    color: var(--bg);
+    color: var(--cream);
     padding: 0.85rem 2rem;
     border-radius: 3px;
     font-weight: 600;
@@ -358,18 +321,17 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid rgba(245,240,232,0.28);
+    border: 1px solid rgba(245,241,232,0.28);
     transition: all 0.25s;
     display: inline-block;
   }
 
   .btn-outline:hover {
-    border-color: var(--green-light);
-    color: var(--green-light);
+    border-color: var(--gold);
+    color: var(--gold);
     transform: translateY(-2px);
   }
 
-  /* Hero right panel */
   .hero-panel {
     background: rgba(255,255,255,0.035);
     border: 1px solid rgba(255,255,255,0.09);
@@ -384,7 +346,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--green-bright), var(--coral));
+    background: linear-gradient(90deg, var(--gold), var(--blue-mid));
     border-radius: 8px 8px 0 0;
   }
 
@@ -393,97 +355,39 @@
     font-size: 0.66rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--green-light);
+    color: var(--gold);
     margin-bottom: 1.5rem;
-  }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .stat-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    padding: 1rem;
-    border-radius: 4px;
-    text-align: center;
   }
 
   .stat-number {
     font-family: 'Lora', serif;
     font-size: 2rem;
-    color: var(--green-light);
+    color: var(--gold);
     line-height: 1;
     margin-bottom: 0.3rem;
   }
 
   .stat-label {
     font-size: 0.7rem;
-    color: rgba(245,240,232,0.45);
+    color: rgba(245,241,232,0.45);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-  }
-
-  .availability-bar {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px;
-    padding: 1rem 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .avail-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-
-  .avail-label {
-    font-size: 0.77rem;
-    color: rgba(245,240,232,0.55);
   }
 
   .avail-val {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem;
-    color: var(--green-light);
+    color: var(--gold);
     font-weight: 600;
-  }
-
-  .progress-bar {
-    height: 4px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 2px;
-    overflow: hidden;
   }
 
   .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--green-bright), var(--coral));
+    background: linear-gradient(90deg, var(--gold), var(--blue-mid));
     border-radius: 2px;
     animation: growBar 1.5s ease 1s both;
     transform-origin: left;
   }
-
-  @keyframes growBar {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
-
-  .location-chip {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.78rem;
-    color: rgba(245,240,232,0.5);
-    margin-top: 1rem;
-  }
-
-  .location-chip::before { content: '📍'; font-size: 0.88rem; }
 
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(22px); }
@@ -503,7 +407,7 @@
     font-size: 0.66rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--coral);
+    color: var(--gold);
     margin-bottom: 0.75rem;
     display: block;
   }
@@ -511,12 +415,12 @@
   .section-title {
     font-family: 'Lora', serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    color: var(--green-deep);
+    color: var(--navy);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
 
-  .section-title.light { color: var(--bg); }
+  .section-title.light { color: var(--cream); }
 
   .section-intro {
     font-size: 1.02rem;
@@ -525,69 +429,54 @@
     max-width: 640px;
   }
 
-  .section-intro.light { color: rgba(245,240,232,0.6); }
+  .section-intro.light { color: rgba(245,241,232,0.6); }
 
   .divider {
     width: 40px;
     height: 3px;
-    background: linear-gradient(90deg, var(--green-bright), var(--coral));
+    background: linear-gradient(90deg, var(--gold), var(--blue-mid));
     margin: 1rem 0 2.5rem;
     border-radius: 2px;
   }
 
   /* ── TRUST STRIP ── */
   .trust-strip {
-    background: var(--green-deep);
+    background: var(--navy-mid);
     padding: 26px 5%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.5rem;
-    border-top: 1px solid rgba(91,175,120,0.18);
-    border-bottom: 1px solid rgba(91,175,120,0.18);
+    border-top: 1px solid rgba(200, 164, 80, 0.18);
+    border-bottom: 1px solid rgba(200, 164, 80, 0.18);
   }
 
   .trust-item {
     display: flex;
     align-items: center;
     gap: 0.7rem;
-    color: rgba(245,240,232,0.72);
+    color: rgba(245,241,232,0.72);
     font-size: 0.84rem;
     font-weight: 500;
   }
 
   .trust-icon {
     width: 30px; height: 30px;
-    background: rgba(91,175,120,0.14);
-    border: 1px solid rgba(91,175,120,0.3);
+    background: rgba(200,164,80,0.14);
+    border: 1px solid rgba(200,164,80,0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
-    color: var(--green-light);
+    color: var(--gold);
     flex-shrink: 0;
     font-weight: 700;
   }
 
   /* ── SERVICES ── */
   .services { background: var(--bg-card); }
-
-  .services-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-  }
 
   .service-card {
     background: var(--surface);
@@ -597,31 +486,21 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    cursor: default;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--bg-warm);
-    transition: background 0.3s;
   }
 
   .service-card:hover {
-    border-color: rgba(58,125,82,0.25);
+    border-color: rgba(58,110,170,0.22);
     transform: translateY(-4px);
-    box-shadow: 0 14px 44px rgba(26,58,42,0.1);
+    box-shadow: 0 14px 44px rgba(27,46,80,0.1);
   }
 
   .service-card:hover::before {
-    background: linear-gradient(90deg, var(--green-bright), var(--coral));
+    background: linear-gradient(90deg, var(--gold), var(--blue-mid));
   }
 
   .service-icon {
     width: 44px; height: 44px;
-    background: var(--green-deep);
+    background: var(--navy);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -633,22 +512,13 @@
   .service-card h3 {
     font-family: 'Lora', serif;
     font-size: 1.15rem;
-    color: var(--green-deep);
+    color: var(--navy);
     margin-bottom: 0.7rem;
   }
 
-  .service-card p {
-    font-size: 0.87rem;
-    color: var(--text-soft);
-    line-height: 1.72;
-    margin-bottom: 1rem;
-  }
-
-  .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
   .service-tag {
-    background: var(--green-muted);
-    color: var(--green-mid);
+    background: rgba(27,46,80,0.07);
+    color: var(--navy);
     font-size: 0.71rem;
     font-weight: 600;
     padding: 0.22rem 0.6rem;
@@ -658,7 +528,7 @@
 
   /* ── WHY ME ── */
   .why-me {
-    background: var(--dark);
+    background: var(--navy);
     position: relative;
     overflow: hidden;
   }
@@ -668,29 +538,11 @@
     position: absolute;
     top: -100px; right: -100px;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(42,90,61,0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(58,110,170,0.14) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .why-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    margin-top: 2rem;
-  }
-
   .why-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1.15rem 1.2rem;
     background: var(--dark-card);
     border: 1px solid var(--dark-border);
     border-radius: 5px;
@@ -699,532 +551,105 @@
 
   .why-item:hover {
     background: rgba(255,255,255,0.08);
-    border-color: rgba(91,175,120,0.22);
+    border-color: rgba(200,164,80,0.22);
   }
 
   .why-num {
+    color: var(--gold);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--green-light);
-    letter-spacing: 0.05em;
-    padding-top: 2px;
-    flex-shrink: 0;
-    min-width: 24px;
   }
 
-  .why-text h4 {
-    font-weight: 600;
-    color: var(--bg);
-    font-size: 0.94rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .why-text p {
-    font-size: 0.82rem;
-    color: rgba(245,240,232,0.48);
-    line-height: 1.62;
-  }
-
-  .why-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-  }
-
-  .big-stat {
-    background: var(--dark-card);
-    border: 1px solid var(--dark-border);
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.25s;
-  }
-
-  .big-stat:hover {
-    border-color: rgba(91,175,120,0.28);
-    background: rgba(255,255,255,0.07);
-  }
+  .why-text h4 { color: var(--cream); }
 
   .big-stat .big-num {
     font-family: 'Lora', serif;
     font-size: 3rem;
-    color: var(--green-light);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .big-stat .big-label {
-    font-size: 0.74rem;
-    color: rgba(245,240,232,0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    line-height: 1.5;
+    color: var(--gold);
   }
 
   .big-stat.accent {
-    background: rgba(91,175,120,0.08);
-    border-color: rgba(91,175,120,0.25);
-    grid-column: span 2;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-align: left;
+    background: rgba(200,164,80,0.08);
+    border-color: rgba(200,164,80,0.25);
   }
 
-  .big-stat.accent .big-num {
-    font-size: 2rem;
-    flex-shrink: 0;
-    color: var(--coral-light);
-  }
-
-  .big-stat.accent .big-label {
-    color: rgba(245,240,232,0.65);
-    font-size: 0.82rem;
-    letter-spacing: 0.03em;
-    text-transform: none;
-  }
+  .big-stat.accent .big-num { color: var(--gold-light); }
 
   /* ── EXPERIENCE ── */
-  .experience { background: var(--bg); }
-
-  .exp-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
   .current-role {
-    background: var(--green-deep);
+    background: var(--navy-deep);
     border-radius: 8px;
     padding: 2rem;
-    position: sticky;
-    top: 84px;
   }
 
-  .current-role .role-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.63rem;
-    letter-spacing: 0.16em;
-    color: var(--green-light);
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
+  .current-role .role-tag { color: var(--gold); }
+  .current-role h3 { color: var(--cream); }
 
-  .current-role h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.25rem;
-    color: var(--bg);
-    margin-bottom: 0.3rem;
-  }
+  .role-bullets li::before { color: var(--gold); }
 
-  .current-role .period {
-    font-size: 0.78rem;
-    color: rgba(245,240,232,0.45);
-    margin-bottom: 1.2rem;
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .history-title { color: var(--navy); }
 
-  .role-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .role-bullets li {
-    font-size: 0.82rem;
-    color: rgba(245,240,232,0.62);
-    line-height: 1.55;
-    padding-left: 1rem;
-    position: relative;
-  }
-
-  .role-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--coral-light);
-    font-size: 0.75rem;
-  }
-
-  .history-title {
-    font-family: 'Lora', serif;
-    font-size: 1.35rem;
-    color: var(--green-deep);
-    margin-bottom: 0.5rem;
-  }
-
-  .history-sub {
-    font-size: 0.84rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .history-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .history-table thead tr {
-    background: var(--green-deep);
-  }
-
-  .history-table thead th {
-    text-align: left;
-    padding: 0.85rem 1rem;
-    font-size: 0.7rem;
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--green-light);
-    font-weight: 400;
-  }
-
-  .history-table tbody tr {
-    border-bottom: 1px solid var(--bg-warm);
-    transition: background 0.2s;
-  }
-
-  .history-table tbody tr:hover { background: rgba(26,58,42,0.04); }
-  .history-table tbody tr:nth-child(even) { background: rgba(26,58,42,0.025); }
-  .history-table tbody tr:nth-child(even):hover { background: rgba(26,58,42,0.055); }
-
-  .history-table td {
-    padding: 0.9rem 1rem;
-    font-size: 0.87rem;
-    color: var(--text);
-    vertical-align: middle;
-  }
-
-  .history-table td:first-child { font-weight: 600; color: var(--green-deep); }
-  .history-table td:last-child {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.73rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
+  .history-table thead tr { background: var(--navy-deep); }
+  .history-table thead th { color: var(--gold); }
+  .history-table td:first-child { color: var(--navy); }
 
   .role-pill {
-    display: inline-block;
-    background: var(--green-muted);
-    color: var(--green-mid);
-    font-size: 0.74rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    font-weight: 500;
+    background: rgba(27,46,80,0.08);
+    color: var(--navy);
   }
 
   /* ── TOOLS ── */
-  .tools { background: var(--surface); }
-
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
-  }
-
-  .tool-card {
-    border: 1px solid var(--bg-warm);
-    border-radius: 7px;
-    padding: 1.3rem;
-    text-align: center;
-    background: var(--bg);
-    transition: all 0.25s;
-  }
-
-  .tool-card:hover {
-    border-color: var(--green-bright);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(42,90,61,0.12);
-  }
-
-  .tool-emoji { font-size: 2rem; display: block; margin-bottom: 0.6rem; }
-
-  .tool-name {
-    font-weight: 700;
-    font-size: 0.87rem;
-    color: var(--green-deep);
-    margin-bottom: 0.25rem;
-  }
-
-  .tool-type { font-size: 0.71rem; color: var(--text-muted); letter-spacing: 0.03em; }
+  .tool-card:hover { border-color: var(--blue-mid); }
+  .tool-name { color: var(--navy); }
 
   /* ── CREDENTIALS ── */
-  .credentials { background: var(--bg); }
-
-  .creds-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-    margin-top: 2.5rem;
-  }
-
-  .cred-card {
-    background: var(--surface);
-    border: 1px solid var(--bg-warm);
-    border-radius: 8px;
-    padding: 1.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-  }
-
-  .cred-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--green-bright), var(--coral));
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    transform-origin: left;
-  }
-
-  .cred-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 44px rgba(26,58,42,0.1);
-  }
-
-  .cred-card:hover::after { transform: scaleX(1); }
-
-  .cred-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
-
-  .cred-card h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.12rem;
-    color: var(--green-deep);
-    margin-bottom: 0.4rem;
-  }
-
-  .cred-card p {
-    font-size: 0.83rem;
-    color: var(--text-soft);
-    line-height: 1.65;
-  }
+  .cred-card h3 { color: var(--navy); }
+  .cred-card::after { background: linear-gradient(90deg, var(--gold), var(--blue-mid)); }
 
   .cred-badge {
-    display: inline-block;
-    background: var(--green-deep);
-    color: var(--green-light);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.63rem;
-    letter-spacing: 0.1em;
-    padding: 0.28rem 0.7rem;
-    border-radius: 2px;
-    margin-top: 0.8rem;
-    text-transform: uppercase;
+    background: var(--navy);
+    color: var(--gold);
   }
 
   /* ── CONTACT ── */
-  .contact {
-    background: var(--dark);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: '';
-    position: absolute;
-    bottom: -200px; right: -200px;
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(212,98,42,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    margin-top: 2rem;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.2rem;
-    background: var(--dark-card);
-    border: 1px solid var(--dark-border);
-    border-radius: 5px;
-    transition: all 0.25s;
-    text-decoration: none;
-  }
-
-  .contact-item:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(91,175,120,0.25);
-    transform: translateX(4px);
-  }
-
+  .contact { background: var(--navy); }
+  .contact-item:hover { border-color: rgba(200,164,80,0.25); }
   .contact-icon {
-    width: 36px; height: 36px;
-    background: rgba(91,175,120,0.1);
-    border: 1px solid rgba(91,175,120,0.22);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.88rem;
-    flex-shrink: 0;
+    background: rgba(200,164,80,0.1);
+    border: 1px solid rgba(200,164,80,0.22);
+    color: var(--gold);
   }
-
-  .contact-label {
-    font-size: 0.68rem;
-    color: rgba(245,240,232,0.38);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .contact-value { font-size: 0.9rem; color: var(--bg); font-weight: 500; }
-
-  .contact-form {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 8px;
-    padding: 2rem;
-  }
-
-  .form-title {
-    font-family: 'Lora', serif;
-    font-size: 1.35rem;
-    color: var(--bg);
-    margin-bottom: 1.5rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group label {
-    font-size: 0.72rem;
-    color: rgba(245,240,232,0.42);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.11);
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-    color: var(--bg);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(245,240,232,0.2); }
+  .contact-value { color: var(--cream); }
 
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--green-light); }
-
-  .form-group select option { background: var(--dark); color: var(--bg); }
-  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group textarea:focus { border-color: var(--gold); }
 
   /* ── FOOTER ── */
   footer {
-    background: #080f0a;
-    padding: 2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-top: 1px solid rgba(91,175,120,0.13);
+    background: #090f1a;
+    border-top: 1px solid rgba(200,164,80,0.14);
   }
+  .footer-brand { color: var(--cream); }
+  .footer-note a { color: var(--gold); }
 
-  .footer-brand {
-    font-family: 'Lora', serif;
-    color: var(--bg);
-    font-size: 1rem;
-  }
-
-  .footer-brand span { color: var(--green-light); }
-
-  .footer-note { font-size: 0.77rem; color: rgba(245,240,232,0.32); }
-  .footer-note a { color: var(--green-light); text-decoration: none; }
-
-  /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .tools-grid { grid-template-columns: repeat(3, 1fr); }
-    .creds-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
   @media (max-width: 768px) {
+    .hero-panel { display: none; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
-    .hero { grid-template-columns: 1fr; padding: 100px 5% 60px; gap: 2.5rem; }
-    .hero-panel { display: none; }
-    .services-grid { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .why-stats { order: -1; }
-    .exp-layout { grid-template-columns: 1fr; gap: 2rem; }
-    .current-role { position: static; }
-    .history-table thead th:nth-child(3),
-    .history-table td:nth-child(3) { display: none; }
-    .tools-grid { grid-template-columns: repeat(2, 1fr); }
-    .creds-grid { grid-template-columns: 1fr; }
-    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
-    .trust-strip { gap: 1.5rem; }
-    .trust-item { font-size: 0.78rem; }
-  }
-
-  @media (max-width: 480px) {
-    section { padding: 60px 5%; }
-    .tools-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 2rem; }
-    .history-table td, .history-table th { padding: 0.65rem 0.6rem; font-size: 0.8rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
-  <a class="nav-logo" href="#"><span>Ajaya Kumar</span> Panigrahi</a>
+  <a class="nav-logo" href="#">Ajaya Kumar Panigrahi</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why-me">Why Me</a></li>
@@ -1237,7 +662,6 @@
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#why-me" onclick="closeMobileMenu()">Why Me</a>
@@ -1246,7 +670,6 @@
   <a href="#contact" onclick="closeMobileMenu()">Hire Me</a>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-tag">Available for U.S. CPA Firms — Remote</div>
@@ -1256,8 +679,8 @@
       15+ years of finance and accounting expertise, now exclusively focused on delivering clean, accurate, and CPA-ready books for U.S. firms — remotely from Mumbai, India's financial capital.
     </p>
     <div class="hero-badges">
-      <span class="badge badge-green">QuickBooks ProAdvisor</span>
-      <span class="badge badge-green">Xero L1 Certified</span>
+      <span class="badge badge-gold">QuickBooks ProAdvisor</span>
+      <span class="badge badge-gold">Xero L1 Certified</span>
       <span class="badge">CMA (India)</span>
       <span class="badge">B.Com</span>
       <span class="badge">SAP · Oracle</span>
@@ -1311,7 +734,6 @@
   </div>
 </section>
 
-<!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-item"><div class="trust-icon">✓</div> QuickBooks ProAdvisor Certified</div>
   <div class="trust-item"><div class="trust-icon">✓</div> Xero L1 Certified</div>
@@ -1320,7 +742,6 @@
   <div class="trust-item"><div class="trust-icon">✓</div> No CPA/EA Affiliation — Conflict Free</div>
 </div>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-header reveal">
     <div>
@@ -1371,480 +792,84 @@
         <span class="service-tag">Power BI</span>
       </div>
     </div>
-
+    
     <div class="service-card reveal">
       <div class="service-icon">⚙️</div>
       <h3>Cost &amp; Management Accounting</h3>
-      <p>CMA-level expertise in Activity Based Costing, Standard Costing, and decision-support analytics — real industry depth, not just textbook knowledge.</p>
-      <div class="service-tags">
-        <span class="service-tag">ABC Costing</span>
-        <span class="service-tag">Standard Costing</span>
-        <span class="service-tag">Marginal Costing</span>
-        <span class="service-tag">MIS Reports</span>
-      </div>
+      <p>CMA-level expertise in Activity Based Costing, Standard Costing, and decision-support analytics.</p>
+      <div class="service-tags"><span class="service-tag">ABC</span><span class="service-tag">MIS</span></div>
     </div>
-
     <div class="service-card reveal">
       <div class="service-icon">🗂️</div>
-      <h3>Admin, HR &amp; Client Support</h3>
-      <p>Administrative coordination, client communication, HR record management, and data management — taking the operational load off your team.</p>
-      <div class="service-tags">
-        <span class="service-tag">Admin Support</span>
-        <span class="service-tag">Client Comms</span>
-        <span class="service-tag">HR Records</span>
-        <span class="service-tag">Data Management</span>
-      </div>
+      <h3>Admin &amp; Client Support</h3>
+      <p>Administrative coordination and client communication support to offload your team.</p>
+      <div class="service-tags"><span class="service-tag">Admin</span><span class="service-tag">HR</span></div>
     </div>
-
     <div class="service-card reveal">
       <div class="service-icon">📣</div>
       <h3>Digital Marketing</h3>
-      <p>Content creation, YouTube video production, Google Ads campaigns, and Analytics reporting — growing your firm's online presence while you focus on clients.</p>
-      <div class="service-tags">
-        <span class="service-tag">Google Ads</span>
-        <span class="service-tag">Analytics</span>
-        <span class="service-tag">YouTube</span>
-        <span class="service-tag">Content Creation</span>
-      </div>
+      <p>Content, Google Ads, and Analytics reporting to help grow your firm's online presence.</p>
+      <div class="service-tags"><span class="service-tag">Google Ads</span><span class="service-tag">SEO</span></div>
     </div>
   </div>
 </section>
 
-<!-- WHY ME -->
 <section class="why-me" id="why-me">
   <div class="why-grid">
     <div>
       <span class="section-tag">// Why Choose Me</span>
       <h2 class="section-title light">The Right Remote<br>Partner for Your Firm</h2>
       <div class="divider"></div>
-      <p class="section-intro light">Based in Mumbai — India's financial capital — operating as an independent individual contributor with co-working space flexibility and zero-downtime infrastructure.</p>
+      <p class="section-intro light">Based in Mumbai — India's financial capital — operating as an independent individual contributor with co-working space flexibility.</p>
 
       <div class="why-list">
         <div class="why-item reveal">
           <span class="why-num">01</span>
           <div class="why-text">
             <h4>Tax Season Surge Capacity</h4>
-            <p>Up to 80 hrs/week when your firm needs it most — no scrambling for bandwidth during peak season.</p>
+            <p>Up to 80 hrs/week when your firm needs it most — no scrambling during peak season.</p>
           </div>
         </div>
         <div class="why-item reveal">
           <span class="why-num">02</span>
           <div class="why-text">
-            <h4>Mumbai-Based Individual Contributor</h4>
-            <p>Operating from India's financial capital with readiness to work from dedicated co-working spaces — professional environment, 24/7 connectivity.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <span class="why-num">03</span>
-          <div class="why-text">
-            <h4>Real Industry Depth</h4>
-            <p>15+ years across manufacturing, chemicals, engineering, ports &amp; plastics — experience that goes well beyond standard bookkeeping.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <span class="why-num">04</span>
-          <div class="why-text">
-            <h4>Multi-Platform Expert</h4>
-            <p>QuickBooks Online, Xero, SAP, Oracle, Power BI, advanced Excel — the full stack your clients use, already mastered.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <span class="why-num">05</span>
-          <div class="why-text">
-            <h4>Zero Conflict of Interest</h4>
-            <p>Not affiliated with any CPA, EA or CA firm in the USA or internationally — full professional dedication to you.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <span class="why-num">06</span>
-          <div class="why-text">
-            <h4>AI-Enabled Workflows</h4>
-            <p>AI agents and automation tools applied across bookkeeping to improve accuracy, reduce manual effort, and accelerate deliverables.</p>
+            <h4>Mumbai-Based Professional</h4>
+            <p>Working from India's financial hub with professional infrastructure and 24/7 connectivity.</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="why-stats reveal">
-      <div class="big-stat">
-        <div class="big-num">15+</div>
-        <div class="big-label">Years of Finance &amp; Accounting Experience</div>
-      </div>
-      <div class="big-stat">
-        <div class="big-num">80</div>
-        <div class="big-label">Hours / Week During U.S. Tax Season</div>
-      </div>
-      <div class="big-stat">
-        <div class="big-num">8</div>
-        <div class="big-label">Industries Across Career</div>
-      </div>
-      <div class="big-stat">
-        <div class="big-num">3</div>
-        <div class="big-label">Professional Certifications</div>
-      </div>
+      <div class="big-stat"><div class="big-num">15+</div><div class="big-label">Years Experience</div></div>
+      <div class="big-stat"><div class="big-num">80</div><div class="big-label">Hrs/Wk Tax Season</div></div>
+      <div class="big-stat"><div class="big-num">8</div><div class="big-label">Industries Served</div></div>
+      <div class="big-stat"><div class="big-num">6</div><div class="big-label">Professional Certifications</div></div>
       <div class="big-stat accent">
         <div class="big-num">₹→$</div>
-        <div class="big-label">Based in Mumbai, India's Financial Capital — serving U.S. CPA firms with full remote capability and co-working space access.</div>
+        <div class="big-label">Based in Mumbai — delivering CPA-ready books with full remote capability.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div style="margin-bottom: 3rem" class="reveal">
-    <span class="section-tag">// Career History</span>
-    <h2 class="section-title">Professional Experience</h2>
-    <div class="divider"></div>
-    <p class="section-intro">15+ years of progressive finance and accounting roles — from multinational engineering firms to manufacturing, chemicals, ports and plastics.</p>
-  </div>
-
-  <div class="exp-layout">
-    <div class="current-role reveal">
-      <p class="role-tag">// Current Role</p>
-      <h3>Senior Bookkeeper &amp; Accounting Consultant</h3>
-      <p class="period">Oct 2025 – Present &nbsp;|&nbsp; Remote</p>
-      <ul class="role-bullets">
-        <li>Full-cycle QBO &amp; Xero bookkeeping for U.S. SMEs and CPA firms</li>
-        <li>CPA-ready books, clean reconciliations and year-end handover</li>
-        <li>Cleanup &amp; catch-up bookkeeping — resolving misclassified transactions</li>
-        <li>Monthly management reports: P&amp;L, Balance Sheet, Cash Flow</li>
-        <li>AR/AP support — invoicing, vendor bills, expense tracking</li>
-        <li>Tax-ready books and structured documentation for CPA teams</li>
-        <li>FP&amp;A — budgeting, forecasting and variance analysis</li>
-        <li>Cost accounting &amp; management accounting advisory</li>
-        <li>Admin, client comms, HR records and data management</li>
-        <li>Digital marketing: Google Ads, Analytics, YouTube, content</li>
-        <li>AI agents &amp; automation for speed and accuracy</li>
-        <li>Independent contributor — Mumbai-based, co-working ready</li>
-      </ul>
-    </div>
-
-    <div class="reveal">
-      <h3 class="history-title">Prior Employment History</h3>
-      <p class="history-sub">Full details available on request. 15+ years across diverse industries.</p>
-      <table class="history-table">
-        <thead>
-          <tr>
-            <th>Organisation</th>
-            <th>Role</th>
-            <th>Period</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>VVF India Ltd., Mumbai</td>
-            <td><span class="role-pill">Asst. Manager – Costing</span></td>
-            <td>Sept 2024 – Oct 2025</td>
-          </tr>
-          <tr>
-            <td>All Time Plastics Ltd., Mumbai</td>
-            <td><span class="role-pill">Dy. Manager – Costing</span></td>
-            <td>Dec 2022 – May 2024</td>
-          </tr>
-          <tr>
-            <td>Sirpur Paper Mills Ltd., Telangana</td>
-            <td><span class="role-pill">Dy. Manager – Costing</span></td>
-            <td>Jan 2021 – Mar 2022</td>
-          </tr>
-          <tr>
-            <td>Gopalpur Ports Ltd., Odisha</td>
-            <td><span class="role-pill">Deputy Manager – Accounts</span></td>
-            <td>Jun 2019 – Jan 2021</td>
-          </tr>
-          <tr>
-            <td>Zuari Agro Chemicals Ltd., Maharashtra</td>
-            <td><span class="role-pill">Asst. Manager – Finance</span></td>
-            <td>Nov 2017 – Oct 2018</td>
-          </tr>
-          <tr>
-            <td>Uttam Galva Metallics Ltd., Maharashtra</td>
-            <td><span class="role-pill">Sr. Officer – Accounts</span></td>
-            <td>Aug 2016 – Nov 2017</td>
-          </tr>
-          <tr>
-            <td>Wipro Enterprises (Water Business), Navi Mumbai</td>
-            <td><span class="role-pill">Sr. Executive – Commercial</span></td>
-            <td>Mar 2013 – Mar 2016</td>
-          </tr>
-          <tr>
-            <td>Technip KT India Ltd., Noida</td>
-            <td><span class="role-pill">Associate Officer – Accounts</span></td>
-            <td>Jul 2009 – Jan 2012</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section class="tools" id="tools">
-  <div class="reveal">
-    <span class="section-tag">// Technology Stack</span>
-    <h2 class="section-title">Tools &amp; Platforms</h2>
-    <div class="divider"></div>
-    <p class="section-intro">Every major platform your clients use — already mastered. No learning curve, just results.</p>
-  </div>
-
-  <div class="tools-grid">
-    <div class="tool-card reveal"><span class="tool-emoji">📗</span><div class="tool-name">QuickBooks Online</div><div class="tool-type">ProAdvisor Certified</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">📘</span><div class="tool-name">Xero</div><div class="tool-type">L1 Certified</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">🔷</span><div class="tool-name">SAP</div><div class="tool-type">ERP System</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">🔶</span><div class="tool-name">Oracle</div><div class="tool-type">ERP System</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">📊</span><div class="tool-name">Power BI</div><div class="tool-type">+ Power Query</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">📋</span><div class="tool-name">Excel &amp; Google Sheets</div><div class="tool-type">Advanced Level</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">🐍</span><div class="tool-name">Python</div><div class="tool-type">Scripting &amp; Automation</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">🤖</span><div class="tool-name">AI Agents</div><div class="tool-type">Workflow Automation</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">📣</span><div class="tool-name">Google Ads</div><div class="tool-type">+ Analytics</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">▶️</span><div class="tool-name">YouTube Studio</div><div class="tool-type">Content &amp; Video</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">🗃️</span><div class="tool-name">MS Access / SQL</div><div class="tool-type">Database &amp; Reporting</div></div>
-    <div class="tool-card reveal"><span class="tool-emoji">📦</span><div class="tool-name">Tally</div><div class="tool-type">Accounting ERP</div></div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section class="credentials" id="credentials">
-  <div class="reveal">
-    <span class="section-tag">// Qualifications</span>
-    <h2 class="section-title">Education &amp; Credentials</h2>
-    <div class="divider"></div>
-    <p class="section-intro">Formally qualified, platform-certified, and continuously learning — building on a foundation of 15+ years of applied finance expertise.</p>
-  </div>
-
-  <div class="creds-grid">
-    <div class="cred-card reveal">
-      <span class="cred-icon">📗</span>
-      <h3>Certified QuickBooks ProAdvisor</h3>
-      <p>Intuit-certified ProAdvisor with hands-on experience setting up, migrating, cleaning up, and maintaining QuickBooks Online for U.S. small businesses and CPA firm clients.</p>
-      <span class="cred-badge">Intuit Certified</span>
-    </div>
-
-    <div class="cred-card reveal">
-      <span class="cred-icon">📘</span>
-      <h3>Xero L1 Certified Bookkeeper</h3>
-      <p>Xero L1 Certified with demonstrated expertise in Xero bookkeeping, reconciliations, reporting, and client management. Covers the full Xero workflow for SME and CPA firm use cases.</p>
-      <span class="cred-badge">Xero L1 Certified</span>
-    </div>
-
-    <div class="cred-card reveal">
-      <span class="cred-icon">🏅</span>
-      <h3>CMA — Cost Management Accountant</h3>
-      <p>Certified Management Accountant from NIRC-ICMAI, New Delhi (2010). Provides deep expertise in cost accounting, management accounting, FP&amp;A, and financial decision support.</p>
-      <span class="cred-badge">ICMAI — 2010</span>
-    </div>
-
-    <div class="cred-card reveal">
-      <span class="cred-icon">🎓</span>
-      <h3>B.Com — Bachelor of Commerce</h3>
-      <p>Bachelor of Commerce from Binayaka Acharya College, Berhampur University, Orissa (2001). Foundational academic grounding in accounting, finance, and commerce.</p>
-      <span class="cred-badge">Berhampur University</span>
-    </div>
-
-    <div class="cred-card reveal">
-      <span class="cred-icon">📉</span>
-      <h3>Data Analytics for Finance</h3>
-      <p>Completed Data Analytics for Finance Professionals program from the Institute of Cost Accountants of India (2021–22) — applying analytics to financial reporting and decision-making.</p>
-      <span class="cred-badge">ICMAI — 2022</span>
-    </div>
-
-    <div class="cred-card reveal">
-      <span class="cred-icon">🧠</span>
-      <h3>Decision Support Systems</h3>
-      <p>Decision Support System for Managers from IIT Kanpur (2022) — advanced training in MIS automation, simulation models, and data-driven decision frameworks.</p>
-      <span class="cred-badge">IIT Kanpur — 2022</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-layout">
-    <div>
-      <span class="section-tag">// Let's Work Together</span>
-      <h2 class="section-title light">Ready to Support<br>Your CPA Firm</h2>
-      <div class="divider"></div>
-      <p class="section-intro light">Whether you need ongoing monthly bookkeeping, tax-season surge support, or a full-service accounting and admin partner — let's talk.</p>
-
-      <div class="contact-info">
-        <a class="contact-item" href="mailto:ajayakpanigrahi@gmail.com">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value">ajayakpanigrahi@gmail.com</div>
-          </div>
-        </a>
-        <a class="contact-item" href="tel:+919920873116">
-          <div class="contact-icon">📞</div>
-          <div>
-            <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-value">+91 99208 73116</div>
-          </div>
-        </a>
-        <div class="contact-item" style="cursor:default">
-          <div class="contact-icon">📍</div>
-          <div>
-            <div class="contact-label">Location</div>
-            <div class="contact-value">Mumbai, India — Financial Capital</div>
-          </div>
-        </div>
-        <div class="contact-item" style="cursor:default">
-          <div class="contact-icon">🕐</div>
-          <div>
-            <div class="contact-label">Availability</div>
-            <div class="contact-value">80 hrs/wk tax season · 20 hrs/wk off-season</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form reveal">
-      <p class="form-title">Send a Message</p>
-      <!-- PRIVACY NOTICE: This form opens your email client. No data is stored on any server. -->
-      <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="senderName">Your Name *</label>
-            <input type="text" id="senderName" name="senderName" placeholder="Jane Smith" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label for="firmName">Firm / Company</label>
-            <input type="text" id="firmName" name="firmName" placeholder="XXXXX CPA LLC" autocomplete="organization">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="senderEmail">Email Address *</label>
-          <input type="email" id="senderEmail" name="senderEmail" placeholder="jane@yourcpafirm.com" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="serviceNeeded">Service Needed</label>
-          <select id="serviceNeeded" name="serviceNeeded">
-            <option value="">Select a service...</option>
-            <option value="bookkeeping">Bookkeeping (QuickBooks / Xero)</option>
-            <option value="taxready">Tax-Ready Books</option>
-            <option value="fpa">FP&amp;A &amp; Management Reporting</option>
-            <option value="costing">Cost &amp; Management Accounting</option>
-            <option value="cleanup">Cleanup / Catch-Up Bookkeeping</option>
-            <option value="admin">Admin &amp; Client Support</option>
-            <option value="marketing">Digital Marketing</option>
-            <option value="multiple">Multiple Services</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" placeholder="Tell me about your firm's needs, timeline, and how I can help..." required></textarea>
-        </div>
-        <p style="font-size:0.72rem;color:rgba(245,240,232,0.28);margin-bottom:1rem;line-height:1.5;">
-          &#128274; By clicking Send, your default email app will open with a pre-filled message. No data is collected, stored, or transmitted by this website. Fields marked * are required.
-        </p>
-        <button type="submit" class="btn-primary" style="width:100%">Send Message →</button>
-        <div id="formError" style="display:none;margin-top:0.75rem;color:#ff8a80;font-size:0.82rem;"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand"><span>Ajaya Kumar</span> Panigrahi</div>
-  <div class="footer-note">QuickBooks ProAdvisor &middot; Xero L1 Certified &middot; CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a href="mailto:ajayakpanigrahi@gmail.com">ajayakpanigrahi@gmail.com</a></div>
+  <div class="footer-brand">Ajaya Kumar Panigrahi</div>
+  <div class="footer-note">QuickBooks ProAdvisor &middot; Xero L1 Certified &middot; CMA (India) &nbsp;|&nbsp; Mumbai, India &nbsp;|&nbsp; <a href="mailto:ajayakpanigrahi@gmail.com">ajayakpanigrahi@gmail.com</a></div>
 </footer>
 
-<!-- LEGAL NOTICE FOOTER -->
-<div style="background:#040a06;padding:1.2rem 5%;text-align:center;">
-  <p style="font-size:0.72rem;color:rgba(245,240,232,0.22);line-height:1.8;max-width:900px;margin:0 auto;">
-    <strong style="color:rgba(245,240,232,0.35);">Trademark Notices:</strong>
-    QuickBooks and QuickBooks ProAdvisor are registered trademarks of Intuit Inc. Xero is a registered trademark of Xero Limited. SAP is a registered trademark of SAP SE. Oracle is a registered trademark of Oracle Corporation. Google Ads and Google Analytics are trademarks of Google LLC. Microsoft, Power BI, and Excel are trademarks of Microsoft Corporation. All trademarks are the property of their respective owners. Reference to these marks indicates certification or proficiency status only and does not imply any affiliation with, sponsorship by, or endorsement by the respective trademark owners.
-    <br><br>
-    <strong style="color:rgba(245,240,232,0.35);">Privacy Notice:</strong>
-    This website does not use cookies, tracking pixels, analytics scripts, or any third-party data collection tools. No personal data is collected, stored, or processed by this website. The contact form opens your local email application via a mailto link — no form data is transmitted to or stored on any server. The Google Fonts service is used to load typefaces; by visiting this page, your browser may make a request to Google's servers (fonts.googleapis.com / fonts.gstatic.com). If you are concerned about this, you may disable external fonts in your browser settings.
-    <br><br>
-    <strong style="color:rgba(245,240,232,0.35);">Disclaimer:</strong>
-    The information on this website is for general professional profile purposes only. Nothing on this website constitutes legal, tax, financial, or accounting advice. Ajaya Kumar Panigrahi is not a licensed CPA (Certified Public Accountant) in the United States, nor a licensed EA (Enrolled Agent). Services offered are bookkeeping, accounting, and related support services only — not licensed U.S. tax advice or representation.
-    <br><br>
-    &copy; <span id="year"></span> Ajaya Kumar Panigrahi. All rights reserved.
-  </p>
-</div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
 <script>
-  // Hamburger menu
+  // Hamburger and Scroll Logic
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobileMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-
-  function closeMobileMenu() {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
-
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+    entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); observer.unobserve(entry.target); } });
+  }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
-
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    nav.style.boxShadow = window.scrollY > 60 ? '0 4px 28px rgba(0,0,0,0.35)' : 'none';
-  });
-
-  // Form: mailto handler (no server, no data collection)
-  function handleSubmit(e) {
-    e.preventDefault();
-    const name    = document.getElementById('senderName').value.trim();
-    const email   = document.getElementById('senderEmail').value.trim();
-    const firm    = document.getElementById('firmName').value.trim();
-    const service = document.getElementById('serviceNeeded').value;
-    const msg     = document.getElementById('message').value.trim();
-    const errDiv  = document.getElementById('formError');
-
-    if (!name || !email || !msg) {
-      errDiv.textContent = 'Please fill in all required fields (Name, Email, Message).';
-      errDiv.style.display = 'block';
-      return;
-    }
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      errDiv.textContent = 'Please enter a valid email address.';
-      errDiv.style.display = 'block';
-      return;
-    }
-    errDiv.style.display = 'none';
-
-    const subject = encodeURIComponent('Enquiry from ' + name + (firm ? ' (' + firm + ')' : '') + (service ? ' — ' + service : ''));
-    const body    = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      (firm    ? 'Firm: ' + firm + '\n' : '') +
-      (service ? 'Service: ' + service + '\n' : '') +
-      '\nMessage:\n' + msg
-    );
-    window.location.href = 'mailto:ajayakpanigrahi@gmail.com?subject=' + subject + '&body=' + body;
-  }
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
 </script>
 </body>
 </html>
