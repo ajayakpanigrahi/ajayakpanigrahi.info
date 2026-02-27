@@ -955,7 +955,7 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
         <div id="formError" style="display:none;margin-top:0.75rem;color:#ff8a80;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.82rem"></div>
       </form>
       <p style="font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.68rem;color:rgba(245,241,232,0.18);margin-top:1.2rem;line-height:1.6;text-align:center">
-        To activate form delivery, replace <code style="background:rgba(255,255,255,0.07);padding:0.1rem 0.35rem;border-radius:2px;color:rgba(245,241,232,0.4)">19521ae5-4fb3-4684-9a7d-7d1cee9f1e90</code> with your free key from <a href="https://web3forms.com" target="_blank" rel="noopener" style="color:rgba(200,164,80,0.5)">web3forms.com</a>
+        To activate form delivery, replace <code style="background:rgba(255,255,255,0.07);padding:0.1rem 0.35rem;border-radius:2px;color:rgba(245,241,232,0.4)">YOUR_WEB3FORMS_KEY</code> with your free key from <a href="https://web3forms.com" target="_blank" rel="noopener" style="color:rgba(200,164,80,0.5)">web3forms.com</a>
       </p>
     </div>
   </div>
@@ -1410,7 +1410,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
   // Check key is configured
   var keyInput=this.querySelector('[name="access_key"]');
-  if(!keyInput||keyInput.value==='19521ae5-4fb3-4684-9a7d-7d1cee9f1e90'){
+  if(!keyInput||keyInput.value==='YOUR_WEB3FORMS_KEY'){
     // Fallback to mailto if key not yet configured
     var firm=document.getElementById('firmName').value.trim();
     var service=document.getElementById('serviceNeeded').value;
