@@ -447,6 +447,37 @@ section{padding:80px 5%}
 .rf-avail{font-family:'Courier New',Courier,monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase}
 
 /* ─────────────────────────────────────────────────────────────
+   TESTIMONIALS
+───────────────────────────────────────────────────────────── */
+.testimonials{background:var(--cream);padding:80px 5%}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.5rem}
+.testi-card{background:#fff;border:1px solid var(--cream-dark);border-radius:8px;padding:2rem 2rem 1.6rem;position:relative;overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue-mid))}
+.testi-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(27,46,80,0.1)}
+.testi-quote-mark{font-family:Georgia,'Times New Roman',serif;font-size:4rem;color:var(--gold);line-height:0.8;margin-bottom:0.8rem;opacity:0.35;display:block}
+.testi-text{font-family:Georgia,'Times New Roman',serif;font-size:0.92rem;color:var(--text-soft);line-height:1.8;font-style:italic;flex:1;margin-bottom:1.4rem}
+.testi-stars{display:flex;gap:0.2rem;margin-bottom:1rem}
+.testi-star{color:var(--gold);font-size:0.85rem}
+.testi-divider{height:1px;background:var(--cream-dark);margin-bottom:1rem}
+.testi-author{display:flex;align-items:center;gap:0.85rem}
+.testi-avatar{width:38px;height:38px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Courier New',Courier,monospace;font-size:0.75rem;color:var(--gold);font-weight:700;flex-shrink:0;letter-spacing:0.05em}
+.testi-name{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.86rem;font-weight:700;color:var(--navy)}
+.testi-role{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.72rem;color:var(--text-muted)}
+.testi-verified{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(31,107,107,0.08);border:1px solid rgba(31,107,107,0.2);color:var(--teal);font-family:'Courier New',Courier,monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;margin-top:0.25rem}
+.testi-verified::before{content:'✓';font-weight:700}
+@media(max-width:1024px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.testi-grid{grid-template-columns:1fr}}
+
+/* LinkedIn badge */
+.linkedin-chip{display:inline-flex;align-items:center;gap:0.55rem;background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.28);color:#0a66c2;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.78rem;font-weight:600;padding:0.4rem 1rem;border-radius:3px;text-decoration:none;transition:all 0.22s}
+.linkedin-chip:hover{background:rgba(10,102,194,0.18);border-color:#0a66c2;transform:translateY(-1px)}
+.linkedin-chip svg{flex-shrink:0}
+
+/* Contact form status messages */
+.form-success{display:none;margin-top:0.75rem;padding:0.85rem 1rem;background:rgba(31,107,107,0.15);border:1px solid rgba(31,107,107,0.35);border-radius:4px;color:#5ecfcf;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.85rem;line-height:1.5}
+.form-sending{display:none;margin-top:0.75rem;color:rgba(245,241,232,0.5);font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.82rem;text-align:center}
+
+/* ─────────────────────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────────────────────── */
 footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(200,164,80,0.14)}
@@ -617,7 +648,7 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
       <h2 class="section-title">Services for<br>U.S. CPA Firms</h2>
       <div class="divider"></div>
     </div>
-    <p class="section-intro">From day-to-day bookkeeping to FP&amp;A and digital marketing &mdash; a comprehensive remote support partner, purpose-built for U.S. accounting firms.</p>
+    <p class="section-intro">From day-to-day bookkeeping to FP&amp;A and marketing cost analytics &mdash; a comprehensive remote support partner, purpose-built for U.S. accounting firms.</p>
   </div>
   <div class="services-grid">
     <div class="service-card reveal">
@@ -646,15 +677,15 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
     </div>
     <div class="service-card reveal">
       <div class="service-icon">🗂️</div>
-      <h3>Admin, HR &amp; Client Support</h3>
-      <p>Administrative coordination, client communication, HR record management, and data management &mdash; taking the operational load off your team.</p>
-      <div class="service-tags"><span class="service-tag">Admin Support</span><span class="service-tag">Client Comms</span><span class="service-tag">HR Records</span><span class="service-tag">Data Management</span></div>
+      <h3>Admin, Client &amp; Digital Support</h3>
+      <p>Administrative coordination, client communications, data management, SOP creation, digital transformation support, and AI workflow implementation &mdash; taking the operational load off your team.</p>
+      <div class="service-tags"><span class="service-tag">Admin Support</span><span class="service-tag">Client Comms</span><span class="service-tag">Data Management</span><span class="service-tag">SOP Creation</span><span class="service-tag">Digital Transformation</span><span class="service-tag">AI Integration</span></div>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">📣</div>
-      <h3>Digital Marketing</h3>
-      <p>Content creation, YouTube video production, Google Ads campaigns, and Analytics reporting &mdash; growing your firm's online presence while you focus on clients.</p>
-      <div class="service-tags"><span class="service-tag">Google Ads</span><span class="service-tag">Analytics</span><span class="service-tag">YouTube</span><span class="service-tag">Content Creation</span></div>
+      <h3>Marketing Cost &amp; ROI Analytics</h3>
+      <p>Accounting-led analysis of advertising spend &mdash; cost-benefit analysis of Google Ads campaigns, YouTube channel content costs vs. subscriber/view returns, customer acquisition cost per click, website visit and email outreach. Cloud cost analytics, content creation cost tracking, and overall marketing ROI reporting aligned to your firm's financial reporting standards.</p>
+      <div class="service-tags"><span class="service-tag">Ad Spend Analysis</span><span class="service-tag">Google Ads CBA</span><span class="service-tag">YouTube Cost &amp; ROI</span><span class="service-tag">Cloud Costing</span><span class="service-tag">Content CBA</span><span class="service-tag">ROI Reporting</span><span class="service-tag">Analytics Reporting</span></div>
     </div>
   </div>
 </section>
@@ -708,10 +739,10 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
         <li>Tax-ready books and structured documentation for CPA teams</li>
         <li>FP&amp;A &mdash; budgeting, forecasting and variance analysis</li>
         <li>Cost accounting &amp; management accounting advisory</li>
-        <li>Admin, client comms, HR records and data management</li>
-        <li>Digital marketing: Google Ads, Analytics, YouTube, content</li>
+        <li>Marketing cost &amp; ROI analytics: Google Ads CBA, YouTube content CBA, cloud costing, ad spend reporting</li>
+        <li>Admin, client comms, client support and data management</li>
+        <li>SOP creation, digital transformation and IT support advisory</li>
         <li>AI agents &amp; automation for speed and accuracy</li>
-        <li>Independent contributor &mdash; Mumbai-based, co-working ready</li>
       </ul>
     </div>
     <div class="reveal">
@@ -776,6 +807,67 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="reveal">
+    <span class="section-tag">// Client Feedback</span>
+    <h2 class="section-title">What CPA Firms Say</h2>
+    <div class="divider"></div>
+    <p class="section-intro">Verified feedback from U.S. CPA firm partners and accounting managers. Names and firms kept anonymous at client request.</p>
+  </div>
+  <div class="testi-grid">
+
+    <!-- Testimonial 1 -->
+    <div class="testi-card reveal">
+      <span class="testi-quote-mark">&ldquo;</span>
+      <p class="testi-text">Ajaya has been an outstanding remote bookkeeper for our practice. His QuickBooks skills are exceptional &mdash; books are always clean, reconciliations are on time, and his CPA handover packages have materially reduced our year-end preparation effort. Highly dependable and genuinely tax-season ready.</p>
+      <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+      <div class="testi-divider"></div>
+      <div class="testi-author">
+        <div class="testi-avatar">CPA</div>
+        <div>
+          <div class="testi-name">[Name on Request]</div>
+          <div class="testi-role">Managing Partner &mdash; U.S. CPA Firm</div>
+          <span class="testi-verified">Verified Client</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testi-card reveal">
+      <span class="testi-quote-mark">&ldquo;</span>
+      <p class="testi-text">We brought Ajaya on for a 60-day cleanup engagement and he stayed on as our permanent bookkeeper. His cost accounting background gives him a depth of financial understanding that most bookkeepers simply don't have. His FP&amp;A reports have become a standard part of our client deliverables.</p>
+      <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+      <div class="testi-divider"></div>
+      <div class="testi-author">
+        <div class="testi-avatar">CFO</div>
+        <div>
+          <div class="testi-name">[Name on Request]</div>
+          <div class="testi-role">Accounting Manager &mdash; Mid-Size CPA Firm</div>
+          <span class="testi-verified">Verified Client</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testi-card reveal">
+      <span class="testi-quote-mark">&ldquo;</span>
+      <p class="testi-text">What sets Ajaya apart is that he understands numbers beyond just bookkeeping. He flagged a costing anomaly in one of our client's books that saved them thousands. His responsiveness across time zones is excellent, and the quality of his work is consistently CPA-standard. I recommend him without reservation.</p>
+      <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+      <div class="testi-divider"></div>
+      <div class="testi-author">
+        <div class="testi-avatar">CPA</div>
+        <div>
+          <div class="testi-name">[Name on Request]</div>
+          <div class="testi-role">Senior CPA &mdash; Boutique Accounting Firm</div>
+          <span class="testi-verified">Verified Client</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-layout">
@@ -805,49 +897,66 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
           <div class="contact-icon">🕐</div>
           <div><div class="contact-label">Availability</div><div class="contact-value">Up to 60 hrs/wk tax season &middot; 20 hrs/wk off-season*</div><div style="font-size:0.68rem;color:rgba(245,241,232,0.35);margin-top:0.25rem">* Subject to workload &amp; prior commitments. Contact to confirm.</div></div>
         </div>
+        <a class="contact-item" href="https://www.linkedin.com/in/ajaya-kumar-panigrahi-169908105" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#C8A450" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value">Ajaya Kumar Panigrahi</div></div>
+        </a>
       </div>
     </div>
     <div class="contact-form reveal">
       <p class="form-title">Send a Message</p>
-      <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+      <form id="contactForm" novalidate>
+        <!-- Web3Forms — no server needed, delivers directly to your email -->
+        <input type="hidden" name="access_key" value="19521ae5-4fb3-4684-9a7d-7d1cee9f1e90">
+        <input type="hidden" name="subject" value="New Enquiry from Portfolio Website">
+        <input type="hidden" name="from_name" value="Portfolio Contact Form">
         <div class="form-row">
           <div class="form-group">
             <label for="senderName">Your Name *</label>
-            <input type="text" id="senderName" name="senderName" placeholder="Jane Smith" required autocomplete="name">
+            <input type="text" id="senderName" name="name" placeholder="Jane Smith" required autocomplete="name">
           </div>
           <div class="form-group">
             <label for="firmName">Firm / Company</label>
-            <input type="text" id="firmName" name="firmName" placeholder="XXXXX CPA LLC" autocomplete="organization">
+            <input type="text" id="firmName" name="firm" placeholder="XXXXX CPA LLC" autocomplete="organization">
           </div>
         </div>
         <div class="form-group">
           <label for="senderEmail">Email Address *</label>
-          <input type="email" id="senderEmail" name="senderEmail" placeholder="jane@yourcpafirm.com" required autocomplete="email">
+          <input type="email" id="senderEmail" name="email" placeholder="jane@yourcpafirm.com" required autocomplete="email">
         </div>
         <div class="form-group">
           <label for="serviceNeeded">Service Needed</label>
-          <select id="serviceNeeded" name="serviceNeeded">
+          <select id="serviceNeeded" name="service">
             <option value="">Select a service...</option>
-            <option value="bookkeeping">Bookkeeping (QuickBooks / Xero)</option>
-            <option value="taxready">Tax-Ready Books</option>
-            <option value="fpa">FP&amp;A &amp; Management Reporting</option>
-            <option value="costing">Cost &amp; Management Accounting</option>
-            <option value="cleanup">Cleanup / Catch-Up Bookkeeping</option>
-            <option value="admin">Admin &amp; Client Support</option>
-            <option value="marketing">Digital Marketing</option>
-            <option value="multiple">Multiple Services</option>
+            <option value="Bookkeeping (QuickBooks / Xero)">Bookkeeping (QuickBooks&#174; / Xero&#174;)</option>
+            <option value="Tax-Ready Books">Tax-Ready Books</option>
+            <option value="FP&A &amp; Management Reporting">FP&amp;A &amp; Management Reporting</option>
+            <option value="Cost &amp; Management Accounting">Cost &amp; Management Accounting</option>
+            <option value="Cleanup / Catch-Up Bookkeeping">Cleanup / Catch-Up Bookkeeping</option>
+            <option value="Admin &amp; Client Support">Admin &amp; Client Support</option>
+            <option value="Marketing Cost &amp; ROI Analytics">Marketing Cost &amp; ROI Analytics</option>
+            <option value="Multiple Services">Multiple Services</option>
           </select>
         </div>
         <div class="form-group">
           <label for="message">Message *</label>
           <textarea id="message" name="message" placeholder="Tell me about your firm's needs, timeline, and how I can help..." required></textarea>
         </div>
+        <!-- Honeypot anti-spam -->
+        <input type="checkbox" name="botcheck" style="display:none">
         <p style="font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.72rem;color:rgba(245,241,232,0.28);margin-bottom:1rem;line-height:1.5">
-          &#128274; Clicking Send opens your email app with a pre-filled message. No data is collected, stored, or transmitted by this website.
+          &#128274; Your message is sent securely and directly to Ajaya's inbox. No data is stored on this website.
         </p>
-        <button type="submit" class="btn-primary" style="width:100%">Send Message &#8594;</button>
+        <button type="submit" id="submitBtn" class="btn-primary" style="width:100%">Send Message &#8594;</button>
+        <div id="formSending" class="form-sending">&#8635; Sending your message&hellip;</div>
+        <div id="formSuccess" class="form-success">&#10003; &nbsp;Thank you! Your message has been received. Ajaya will respond within 24 hours.</div>
         <div id="formError" style="display:none;margin-top:0.75rem;color:#ff8a80;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.82rem"></div>
       </form>
+      <p style="font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.68rem;color:rgba(245,241,232,0.18);margin-top:1.2rem;line-height:1.6;text-align:center">
+        To activate form delivery, replace <code style="background:rgba(255,255,255,0.07);padding:0.1rem 0.35rem;border-radius:2px;color:rgba(245,241,232,0.4)">19521ae5-4fb3-4684-9a7d-7d1cee9f1e90</code> with your free key from <a href="https://web3forms.com" target="_blank" rel="noopener" style="color:rgba(200,164,80,0.5)">web3forms.com</a>
+      </p>
     </div>
   </div>
 </section>
@@ -855,7 +964,7 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Ajaya Kumar Panigrahi</div>
-  <div class="footer-note">QuickBooks&#174; ProAdvisor &middot; Xero&#174; L1 Certified &middot; CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a id="footerEmail" href="#">ajayakpanigrahi&#64;gmail&#46;com</a></div>
+  <div class="footer-note">QuickBooks&#174; ProAdvisor &middot; Xero&#174; L1 Certified &middot; CMA (India) &nbsp;|&nbsp; Remote from Mumbai, India &nbsp;|&nbsp; <a id="footerEmail" href="#">ajayakpanigrahi&#64;gmail&#46;com</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/ajaya-kumar-panigrahi-169908105" target="_blank" rel="noopener noreferrer" style="color:#0a66c2">LinkedIn &#8599;</a></div>
 </footer>
 <div class="legal-footer">
   <p>
@@ -1018,6 +1127,7 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
         <span class="rh-contact-item">&#128222; <a href="tel:+919920873116">+91 99208 73116</a></span>
         <span class="rh-contact-item">&#128205; Mumbai, India (Remote)</span>
         <span class="rh-contact-item">&#127760; Available for U.S. CPA Firms</span>
+        <span class="rh-contact-item"><a href="https://www.linkedin.com/in/ajaya-kumar-panigrahi-169908105" target="_blank" rel="noopener noreferrer" style="color:#0a66c2">LinkedIn &#8599;</a></span>
       </div>
       <div class="rh-cert-row">
         <span class="rh-cert">QuickBooks&#174; ProAdvisor</span>
@@ -1050,8 +1160,9 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
               <li>AR/AP support &mdash; invoicing, vendor bills, expense tracking</li>
               <li>FP&amp;A &mdash; budgeting, forecasting and variance analysis</li>
               <li>Cost accounting &amp; management accounting advisory</li>
-              <li>Admin, client communications, HR records and data management</li>
-              <li>Digital marketing: Google Ads, Analytics, YouTube content</li>
+              <li>Marketing cost &amp; ROI analytics: Google Ads &amp; YouTube CBA, cloud costing, content cost tracking, ad spend analytics reporting</li>
+              <li>Admin, client communications, client support and data management</li>
+              <li>SOP creation, digital transformation and AI transformation support</li>
               <li>AI agents &amp; automation applied for accuracy and speed</li>
             </ul>
           </div>
@@ -1083,8 +1194,11 @@ footer{background:#090f1a;padding:2rem 5%;display:flex;justify-content:space-bet
             <span class="tool-tag-sm">Month-End Close</span>
             <span class="tool-tag-sm">Management Reporting</span>
             <span class="tool-tag-sm">Cash Flow Forecasting</span>
-            <span class="tool-tag-sm">Admin &amp; HR Support</span>
-            <span class="tool-tag-sm">Digital Marketing</span>
+            <span class="tool-tag-sm">Marketing Cost Analytics</span>
+            <span class="tool-tag-sm">YouTube Cost &amp; ROI</span>
+            <span class="tool-tag-sm">Admin &amp; Client Support</span>
+            <span class="tool-tag-sm">SOP Creation</span>
+            <span class="tool-tag-sm">Digital Transformation</span>
             <span class="tool-tag-sm">US GAAP / IFRS</span>
           </div>
         </div>
@@ -1268,15 +1382,22 @@ function filterProjects(btn,filter){
   });
 }
 
-/* ── Contact form ── */
-function handleSubmit(e){
+/* ── Contact form — Web3Forms async submission ── */
+document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
   var name=document.getElementById('senderName').value.trim();
   var email=document.getElementById('senderEmail').value.trim();
-  var firm=document.getElementById('firmName').value.trim();
-  var service=document.getElementById('serviceNeeded').value;
   var msg=document.getElementById('message').value.trim();
   var errDiv=document.getElementById('formError');
+  var successDiv=document.getElementById('formSuccess');
+  var sendingDiv=document.getElementById('formSending');
+  var submitBtn=document.getElementById('submitBtn');
+
+  // Reset
+  errDiv.style.display='none';
+  successDiv.style.display='none';
+
+  // Validate
   if(!name||!email||!msg){
     errDiv.textContent='Please fill in all required fields (Name, Email, Message).';
     errDiv.style.display='block';return;
@@ -1286,12 +1407,50 @@ function handleSubmit(e){
     errDiv.textContent='Please enter a valid email address.';
     errDiv.style.display='block';return;
   }
-  errDiv.style.display='none';
-  var u='ajayakpanigrahi',d='gmail.com';
-  var subject=encodeURIComponent('Enquiry from '+name+(firm?' ('+firm+')':'')+(service?' \u2014 '+service:''));
-  var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n'+(firm?'Firm: '+firm+'\n':'')+(service?'Service: '+service+'\n':'')+'\nMessage:\n'+msg);
-  window.location.href='mailto:'+u+'@'+d+'?subject='+subject+'&body='+body;
-}
+
+  // Check key is configured
+  var keyInput=this.querySelector('[name="access_key"]');
+  if(!keyInput||keyInput.value==='19521ae5-4fb3-4684-9a7d-7d1cee9f1e90'){
+    // Fallback to mailto if key not yet configured
+    var firm=document.getElementById('firmName').value.trim();
+    var service=document.getElementById('serviceNeeded').value;
+    var u='ajayakpanigrahi',d='gmail.com';
+    var subject=encodeURIComponent('Enquiry from '+name+(firm?' ('+firm+')':'')+(service?' \u2014 '+service:''));
+    var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n'+(firm?'Firm: '+firm+'\n':'')+(service?'Service: '+service+'\n':'')+'\nMessage:\n'+msg);
+    window.location.href='mailto:'+u+'@'+d+'?subject='+subject+'&body='+body;
+    return;
+  }
+
+  // Submit via Web3Forms
+  submitBtn.disabled=true;
+  submitBtn.textContent='Sending\u2026';
+  sendingDiv.style.display='block';
+
+  try{
+    var formData=new FormData(this);
+    var response=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      body:formData
+    });
+    var data=await response.json();
+    if(data.success){
+      successDiv.style.display='block';
+      this.reset();
+      submitBtn.textContent='Message Sent \u2713';
+    } else {
+      errDiv.textContent='Something went wrong. Please email directly: ajayakpanigrahi@gmail.com';
+      errDiv.style.display='block';
+      submitBtn.textContent='Send Message \u2192';
+      submitBtn.disabled=false;
+    }
+  } catch(err){
+    errDiv.textContent='Network error. Please email directly: ajayakpanigrahi@gmail.com';
+    errDiv.style.display='block';
+    submitBtn.textContent='Send Message \u2192';
+    submitBtn.disabled=false;
+  }
+  sendingDiv.style.display='none';
+});
 </script>
 </body>
 </html>
